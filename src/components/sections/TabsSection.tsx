@@ -348,7 +348,7 @@ export function TabsSection() {
                                     <p className="text-white/80 text-[17px] leading-relaxed mb-6">
                                         Conheça os recursos e funcionalidades do módulo de <span className="text-jobb-orange font-medium">{activeData?.title}</span>, projetados para trazer mais agilidade e controle para seu negócio.
                                     </p>
-                                    <Link className="btn px-8 py-4 mt-2 gradient hover:bg-jobb-orange text-center" to="https://www.sistemajobb.com.br/teste-gratis" target="_blank">Teste grátis por 15 dias</Link>
+                                    <Link className="btn px-8 py-4 mt-2 gradient hover:bg-jobb-orange text-center" to="/teste-gratis">Teste grátis por 15 dias</Link>
                                 </div>
 
                                 <div className="flex flex-wrap gap-2">

@@ -41,7 +41,7 @@ export function Hero() {
                         className=""
                     >
                         <div className="flex flex-col gap-2 items-center md:items-start">
-                            <Link className="btn text-white text-2xl md:text-4xl w-fit px-8 py-6 gradient hover:gradient" to="https://www.sistemajobb.com.br/teste-gratis" target="_blank">Teste grátis por 15 dias</Link>
+                            <Link className="btn text-white text-2xl md:text-4xl w-fit px-8 py-6 gradient hover:gradient" to="/teste-gratis">Teste grátis por 15 dias</Link>
                             <p className="text-jobb-text-secondary mt-4 max-w-xs text-[16px]">
                                 Faça como mais de <span className="text-jobb-orange text-[16px]">400 produtoras</span> que já profissionalizaram a gestão com o Jobb.
                             </p>

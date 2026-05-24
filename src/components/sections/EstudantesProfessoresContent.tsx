@@ -105,7 +105,7 @@ export function EstudantesProfessoresContent() {
                                             <p className="text-[#a3a3a3] mb-6 leading-relaxed">
                                                 Se você é estudante, solicite sua versão de estudante e comece a aprimorar suas habilidades de gerenciamento agora mesmo.
                                             </p>
-                                            <Link to="https://www.sistemajobb.com.br/teste-gratis" target="_blank" className="justify-center gradient hover:bg-orange-600 transition-colors text-white px-6 py-2.5 rounded-2xl">
+                                            <Link to="/teste-gratis" className="justify-center gradient hover:bg-orange-600 transition-colors text-white px-6 py-2.5 rounded-2xl">
                                                 Quero testar
                                             </Link>
                                         </div>

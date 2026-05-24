@@ -1,0 +1,23 @@
+services:
+  web:
+    image: node:22-bullseye
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      # ⚠️ NÃO monte /app/node_modules — isso apaga as deps do container
+      - npm-cache:/root/.npm
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      HOSTNAME: 0.0.0.0
+      NEXT_TELEMETRY_DISABLED: "1"
+      # Em WSL/VM, polling ajuda hot-reload (opcional):
+      WATCHPACK_POLLING: "true"
+    command: >
+      sh -c "npm ci --legacy-peer-deps || npm install --legacy-peer-deps &&
+             npm run dev -- --port 3000 --host"
+
+volumes:
+  npm-cache:

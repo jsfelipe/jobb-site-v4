@@ -93,7 +93,7 @@ export function Solution() {
                     className="flex flex-col md:flex-row justify-center gap-6"
                 >
                     <Link className="btn px-8 py-4 bg-card hover:bg-jobb-bg-secondary text-center" to="/funcionalidades">Mais funcionalidades</Link>
-                    <Link className="btn px-8 py-4 gradient hover:bg-jobb-orange text-center" to="https://www.sistemajobb.com.br/teste-gratis" target="_blank">Teste grátis por 15 dias</Link>
+                    <Link className="btn px-8 py-4 gradient hover:bg-jobb-orange text-center" to="/teste-gratis">Teste grátis por 15 dias</Link>
                 </MotionDiv>
             </div>
         </section>

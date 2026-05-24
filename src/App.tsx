@@ -6,6 +6,10 @@ import Clientes from './pages/Clientes';
 import EstudantesProfessores from './pages/EstudantesProfessores';
 import PoliticaDePrivacidade from './pages/PoliticaDePrivacidade';
 import TermosDeUso from './pages/TermosDeUso';
+import TesteGratis from './pages/TesteGratis';
+import TesteGratisSucesso from './pages/TesteGratisSucesso';
+import TesteGratisPagamentoSuccess from './pages/TesteGratisPagamentoSuccess';
+import { WhatsAppWidget } from './components/WhatsAppWidget';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -28,7 +32,11 @@ function App() {
         <Route path="/estudantes-professores" element={<EstudantesProfessores />} />
         <Route path="/politica-de-privacidade" element={<PoliticaDePrivacidade />} />
         <Route path="/termos-de-uso" element={<TermosDeUso />} />
+        <Route path="/teste-gratis" element={<TesteGratis />} />
+        <Route path="/teste-gratis/sucesso" element={<TesteGratisSucesso />} />
+        <Route path="/teste-gratis/pagamentosuccess" element={<TesteGratisPagamentoSuccess />} />
       </Routes>
+      <WhatsAppWidget />
     </BrowserRouter>
   );
 }

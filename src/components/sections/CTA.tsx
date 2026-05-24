@@ -21,7 +21,7 @@ export function CTA() {
                     <h3 className="text-white/90 mb-8">Teste grátis ou fale com um dos nossos consultores!</h3>
 
                     <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
-                        <Link className="btn px-8 py-4 bg-black hover:bg-black/80 text-white border-none" to="https://www.sistemajobb.com.br/teste-gratis" target="_blank">Teste grátis por 15 dias</Link>
+                        <Link className="btn px-8 py-4 bg-black hover:bg-black/80 text-white border-none" to="/teste-gratis">Teste grátis por 15 dias</Link>
                         <Link className="btn px-8 py-4 bg-white/10 hover:bg-white text-white hover:text-black" to="https://api.whatsapp.com/send?phone=5581998504107&text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Sistema%20Jobb!" target="_blank">Falar com um consultor</Link>
                     </div>
 

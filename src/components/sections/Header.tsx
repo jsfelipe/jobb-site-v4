@@ -37,7 +37,7 @@ export function Header() {
 
                 <div className="hidden lg:flex items-center gap-4">
                     <Link className="py-2 px-6 rounded-2xl bg-card hover:bg-jobb-bg-secondary" to="#">Login</Link>
-                    <Link className="py-2 px-6 rounded-2xl gradient hover:gradient" to="https://www.sistemajobb.com.br/teste-gratis" target="_blank">Teste Grátis</Link>
+                    <Link className="py-2 px-6 rounded-2xl gradient hover:gradient" to="/teste-gratis">Teste Grátis</Link>
                 </div>
 
                 <button className="lg:hidden text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -55,7 +55,7 @@ export function Header() {
                     <Link to="https://blog.sistemajobb.com.br/" target="_blank" onClick={() => setIsMenuOpen(false)} className={`text-sm font-medium transition-colors hover:text-white ${isActive('/blog') ? 'text-jobb-orange' : 'text-jobb-text-secondary'}`}>Blog</Link>
 
                     <div className="flex flex-col gap-4 mt-4">
-                        <Button variant="primary" className="btn w-full" asChild><Link to="https://www.sistemajobb.com.br/teste-gratis" target="_blank">Teste Grátis</Link></Button>
+                        <Button variant="primary" className="btn w-full" asChild><Link to="/teste-gratis">Teste Grátis</Link></Button>
                         <Button variant="outline" className="btn w-full" asChild><Link to="#">Login</Link></Button>
                     </div>
                 </div>
