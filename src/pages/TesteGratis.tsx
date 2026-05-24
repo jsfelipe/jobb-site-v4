@@ -1,8 +1,15 @@
 import { FormEvent, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import TesteGratisAlertDialog from '@/components/teste-gratis/TesteGratisAlertDialog';
 import TesteGratisProvisioning from '@/components/teste-gratis/TesteGratisProvisioning';
 import { Button } from '@/components/ui/button';
+import {
+  LOGIN_MAX_LENGTH,
+  SUBDOMINIO_MAX_LENGTH,
+  validateLogin,
+  validateSubdominio,
+} from '@/utils/testeGratisAccessValidation';
 import { criarContaTeste, submitTesteGratis, verificarDominio } from '@/services/testeGratisApi';
 import {
   INTERESSE_OPTIONS,
@@ -51,6 +58,18 @@ export default function TesteGratis() {
   const [dominioAvailable, setDominioAvailable] = useState<boolean | null>(null);
   const [checkingDominio, setCheckingDominio] = useState(false);
   const [provisioningMessage, setProvisioningMessage] = useState('');
+  const [alertMessage, setAlertMessage] = useState('');
+  const [alertOpen, setAlertOpen] = useState(false);
+
+  const showAlert = (message: string) => {
+    setAlertMessage(message);
+    setAlertOpen(true);
+  };
+
+  const closeAlert = () => {
+    setAlertOpen(false);
+    setAlertMessage('');
+  };
 
   const clearLeadSession = () => {
     sessionStorage.removeItem(TESTE_GRATIS_STORAGE_KEYS.idCliente);
@@ -134,9 +153,53 @@ export default function TesteGratis() {
     }
   };
 
+  const handleSubdominioChange = (raw: string) => {
+    const value = raw.toLowerCase();
+
+    if (value.length > SUBDOMINIO_MAX_LENGTH) {
+      showAlert(`O domínio pode ter no máximo ${SUBDOMINIO_MAX_LENGTH} caracteres.`);
+      return;
+    }
+
+    const validationError = validateSubdominio(value);
+    if (validationError && value.trim() !== '') {
+      showAlert(validationError);
+      return;
+    }
+
+    setSubdominio(value);
+    setDominioAvailable(null);
+    setDominioMessage('');
+  };
+
+  const handleLoginChange = (raw: string) => {
+    const value = raw.toLowerCase();
+
+    if (value.length > LOGIN_MAX_LENGTH) {
+      showAlert(`O login pode ter no máximo ${LOGIN_MAX_LENGTH} caracteres.`);
+      return;
+    }
+
+    const validationError = validateLogin(value);
+    if (validationError && value.trim() !== '') {
+      showAlert(validationError);
+      return;
+    }
+
+    setLogin(value);
+  };
+
   const handleDominioBlur = async () => {
     const value = subdominio.trim().toLowerCase();
     setSubdominio(value);
+
+    const validationError = validateSubdominio(value);
+    if (validationError) {
+      showAlert(validationError);
+      setDominioAvailable(null);
+      setDominioMessage('');
+      return;
+    }
 
     if (!value) {
       setDominioMessage('');
@@ -167,6 +230,21 @@ export default function TesteGratis() {
       return;
     }
 
+    const subdominioValue = subdominio.trim().toLowerCase();
+    const loginValue = login.trim().toLowerCase();
+
+    const subdominioError = validateSubdominio(subdominioValue);
+    if (subdominioError) {
+      showAlert(subdominioError);
+      return;
+    }
+
+    const loginError = validateLogin(loginValue);
+    if (loginError) {
+      showAlert(loginError);
+      return;
+    }
+
     if (dominioAvailable === false) {
       setError('Escolha um domínio disponível.');
       return;
@@ -180,8 +258,8 @@ export default function TesteGratis() {
         {
           id_cliente: idCliente,
           email: leadEmail,
-          subdominio: subdominio.trim().toLowerCase(),
-          login: login.trim(),
+          subdominio: subdominioValue,
+          login: loginValue,
           senha,
           senha_confirmacao: senhaConfirmacao,
         },
@@ -221,6 +299,7 @@ export default function TesteGratis() {
 
   return (
     <>
+      <TesteGratisAlertDialog open={alertOpen} message={alertMessage} onClose={closeAlert} />
       <Helmet>
         <title>Teste Grátis | Sistema Jobb</title>
       </Helmet>
@@ -442,13 +521,10 @@ export default function TesteGratis() {
                         required
                         type="text"
                         placeholder="minhaempresa"
+                        maxLength={SUBDOMINIO_MAX_LENGTH}
                         value={subdominio}
                         className={inputClass}
-                        onChange={(e) => {
-                          setSubdominio(e.target.value.toLowerCase());
-                          setDominioAvailable(null);
-                          setDominioMessage('');
-                        }}
+                        onChange={(e) => handleSubdominioChange(e.target.value)}
                         onBlur={handleDominioBlur}
                       />
                       <span className="shrink-0 text-sm font-semibold text-gray-600">
@@ -465,6 +541,9 @@ export default function TesteGratis() {
                         {dominioMessage}
                       </p>
                     )}
+                    <p className="mt-1 text-xs text-gray-500">
+                      Até {SUBDOMINIO_MAX_LENGTH} caracteres, sem espaços ou acentos.
+                    </p>
                   </div>
 
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -478,10 +557,21 @@ export default function TesteGratis() {
                         required
                         type="text"
                         placeholder="admin"
+                        maxLength={LOGIN_MAX_LENGTH}
+                        autoComplete="username"
                         value={login}
                         className={inputClass}
-                        onChange={(e) => setLogin(e.target.value)}
+                        onChange={(e) => handleLoginChange(e.target.value)}
+                        onBlur={() => {
+                          const validationError = validateLogin(login.trim());
+                          if (validationError) {
+                            showAlert(validationError);
+                          }
+                        }}
                       />
+                      <p className="mt-1 text-xs text-gray-500">
+                        Até {LOGIN_MAX_LENGTH} caracteres. Não use e-mail, espaços ou acentos.
+                      </p>
                     </div>
                     <div>
                       <label htmlFor="senha" className={labelClass}>
