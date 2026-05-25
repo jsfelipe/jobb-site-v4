@@ -29,7 +29,7 @@ export function Footer() {
                             <Link to="https://www.youtube.com/sistemajobb" target="_blank" className="w-8 h-8 flex items-center justify-center text-jobb-text-secondary hover:text-white transition-colors" aria-label="YouTube">
                                 <YoutubeLogo size={32} />
                             </Link>
-                            <Link to="https://api.whatsapp.com/send?phone=5581998504107&text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Sistema%20Jobb!" target="_blank" className="w-8 h-8 flex items-center justify-center text-jobb-text-secondary hover:text-white transition-colors" aria-label="YouTube">
+                            <Link to="https://api.whatsapp.com/send?phone=5581994384020&text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Sistema%20Jobb!" target="_blank" className="w-8 h-8 flex items-center justify-center text-jobb-text-secondary hover:text-white transition-colors" aria-label="YouTube">
                                 <WhatsappLogoIcon size={32} />
                             </Link>
 

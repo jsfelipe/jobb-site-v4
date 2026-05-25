@@ -51,7 +51,7 @@ export function Pricing() {
                             </p>
 
                             <Link
-                                to="https://api.whatsapp.com/send?phone=5581998504107&text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Sistema%20Jobb!"
+                                to="https://api.whatsapp.com/send?phone=5581994384020&text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Sistema%20Jobb!"
                                 target="_blank"
                                 className="w-fit px-8 py-3 gradient rounded-[1rem] transition-all"
                             >
