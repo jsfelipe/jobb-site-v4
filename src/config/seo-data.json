@@ -1,0 +1,63 @@
+{
+  "siteUrl": "https://sistemajobb.com.br",
+  "faviconUrl": "https://arquivos-jobbgestor.s3.amazonaws.com/appImgs/favicon.png",
+  "defaultSeo": {
+    "title": "Sistema de Gestão para Produtoras de Vídeo, Eventos, Cinema, Áudio, Audiovisual e Economia Criativa - Sistema Jobb",
+    "description": "Gerencie sua Produtora de Vídeo, Cinema, Agência de Eventos, Áudio e Estúdio. Gestão Economia Criativa. Controle todos os processos e custos em cada etapa.",
+    "keywords": "Sistema produtora video, sistema produtora audio, Vídeo, Agência de Eventos, eventos corporativos,Áudio, Sistemas Vídeo, economia criativa, Estúdios, Produtoras Vídeo, Estúdios áudio, controle financeiro, software"
+  },
+  "routeSeo": {
+    "/": {
+      "title": "Sistema de Gestão para Produtoras de Vídeo, Eventos, Cinema, Áudio, Audiovisual e Economia Criativa - Sistema Jobb",
+      "description": "Gerencie sua Produtora de Vídeo, Cinema, Agência de Eventos, Áudio e Estúdio. Gestão Economia Criativa. Controle todos os processos e custos em cada etapa.",
+      "keywords": "Sistema produtora video, sistema produtora audio, Vídeo, Agência de Eventos, eventos corporativos,Áudio, Sistemas Vídeo, economia criativa, Estúdios, Produtoras Vídeo, Estúdios áudio, controle financeiro, software"
+    },
+    "/funcionalidades": {
+      "title": "Funcionalidades | Sistema Jobb",
+      "description": "Gerencie sua Produtora de Vídeo, Cinema, Agência de Eventos, Áudio e Estúdio. Gestão Economia Criativa. Controle todos os processos e custos em cada etapa.",
+      "keywords": "Sistema produtora video, sistema produtora audio, Vídeo, Agência de Eventos, eventos corporativos,Áudio, Sistemas Vídeo, economia criativa, Estúdios, Produtoras Vídeo, Estúdios áudio, controle financeiro, software"
+    },
+    "/clientes": {
+      "title": "Clientes | Sistema Jobb",
+      "description": "Gerencie sua Produtora de Vídeo, Cinema, Agência de Eventos, Áudio e Estúdio. Gestão Economia Criativa. Controle todos os processos e custos em cada etapa.",
+      "keywords": "Sistema produtora video, sistema produtora audio, Vídeo, Agência de Eventos, eventos corporativos,Áudio, Sistemas Vídeo, economia criativa, Estúdios, Produtoras Vídeo, Estúdios áudio, controle financeiro, software"
+    },
+    "/estudantes-professores": {
+      "title": "Estudantes e Professores | Sistema Jobb",
+      "description": "Gerencie sua Produtora de Vídeo, Cinema, Agência de Eventos, Áudio e Estúdio. Gestão Economia Criativa. Controle todos os processos e custos em cada etapa.",
+      "keywords": "Sistema produtora video, sistema produtora audio, Vídeo, Agência de Eventos, eventos corporativos,Áudio, Sistemas Vídeo, economia criativa, Estúdios, Produtoras Vídeo, Estúdios áudio, controle financeiro, software"
+    },
+    "/politica-de-privacidade": {
+      "title": "Política de Privacidade | Sistema Jobb",
+      "description": "Política de privacidade do Sistema Jobb.",
+      "noindex": true
+    },
+    "/termos-de-uso": {
+      "title": "Termos de Uso | Sistema Jobb",
+      "description": "Termos de uso do Sistema Jobb.",
+      "noindex": true
+    },
+    "/teste-gratis": {
+      "title": "Teste Grátis | Sistema Jobb",
+      "description": "Gerencie sua Produtora de Vídeo, Cinema, Agência de Eventos, Áudio e Estúdio. Gestão Economia Criativa. Controle todos os processos e custos em cada etapa.",
+      "keywords": "Sistema produtora video, sistema produtora audio, Vídeo, Agência de Eventos, eventos corporativos,Áudio, Sistemas Vídeo, economia criativa, Estúdios, Produtoras Vídeo, Estúdios áudio, controle financeiro, software"
+    },
+    "/teste-gratis/sucesso": {
+      "title": "Cadastro realizado | Sistema Jobb",
+      "description": "Gerencie sua Produtora de Vídeo, Cinema, Agência de Eventos, Áudio e Estúdio. Gestão Economia Criativa. Controle todos os processos e custos em cada etapa.",
+      "noindex": true
+    },
+    "/teste-gratis/pagamentosuccess": {
+      "title": "Pagamento confirmado | Sistema Jobb",
+      "description": "Gerencie sua Produtora de Vídeo, Cinema, Agência de Eventos, Áudio e Estúdio. Gestão Economia Criativa. Controle todos os processos e custos em cada etapa.",
+      "noindex": true
+    }
+  },
+  "prerenderRoutes": [
+    "/",
+    "/funcionalidades",
+    "/clientes",
+    "/estudantes-professores",
+    "/teste-gratis"
+  ]
+}
