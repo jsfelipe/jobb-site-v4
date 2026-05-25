@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Navigate, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import Funcionalidades from './pages/Funcionalidades';
 import Clientes from './pages/Clientes';
@@ -10,6 +10,7 @@ import TesteGratis from './pages/TesteGratis';
 import TesteGratisSucesso from './pages/TesteGratisSucesso';
 import TesteGratisPagamentoSuccess from './pages/TesteGratisPagamentoSuccess';
 import { WhatsAppWidget } from './components/WhatsAppWidget';
+import { SeoHead } from './components/SeoHead';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -24,10 +25,15 @@ function ScrollToTop() {
 function App() {
   return (
     <BrowserRouter>
+      <SeoHead />
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/funcionalidades" element={<Funcionalidades />} />
+        <Route
+          path="/funcionalidades/*"
+          element={<Navigate to="/funcionalidades" replace />}
+        />
         <Route path="/clientes" element={<Clientes />} />
         <Route path="/estudantes-professores" element={<EstudantesProfessores />} />
         <Route path="/politica-de-privacidade" element={<PoliticaDePrivacidade />} />

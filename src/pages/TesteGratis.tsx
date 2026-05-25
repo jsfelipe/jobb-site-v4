@@ -1,5 +1,4 @@
 import { FormEvent, useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import TesteGratisAlertDialog from '@/components/teste-gratis/TesteGratisAlertDialog';
 import TesteGratisProvisioning from '@/components/teste-gratis/TesteGratisProvisioning';
@@ -300,10 +299,6 @@ export default function TesteGratis() {
   return (
     <>
       <TesteGratisAlertDialog open={alertOpen} message={alertMessage} onClose={closeAlert} />
-      <Helmet>
-        <title>Teste Grátis | Sistema Jobb</title>
-      </Helmet>
-
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#F93F06] via-[#ED6D05] to-[#FF6A00] px-4 py-8">
         <section className="w-full max-w-4xl">
           <div

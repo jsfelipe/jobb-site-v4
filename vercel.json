@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/funcionalidades/:path+",
+      "destination": "/funcionalidades",
+      "permanent": true
+    }
+  ]
+}
