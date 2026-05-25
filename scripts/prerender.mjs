@@ -39,11 +39,11 @@ async function waitForServer(url, attempts = 40) {
 }
 
 function startPreview() {
-  return spawn(
-    'npx',
-    ['vite', 'preview', '--port', String(previewPort), '--strictPort'],
-    { cwd: root, stdio: 'inherit', shell: true },
-  );
+  const npx = process.platform === 'win32' ? 'npx.cmd' : 'npx';
+  return spawn(npx, ['vite', 'preview', '--port', String(previewPort), '--strictPort'], {
+    cwd: root,
+    stdio: 'inherit',
+  });
 }
 
 function outputPathForRoute(route) {
