@@ -221,8 +221,12 @@ export default function TesteGratis() {
       return;
     }
 
-    if (dominioAvailable === false) {
-      setError('Escolha um domínio disponível.');
+    if (dominioAvailable !== true) {
+      setError(
+        dominioAvailable === false
+          ? 'Escolha um domínio disponível.'
+          : 'Aguarde a verificação do domínio ou digite outro endereço.'
+      );
       return;
     }
 

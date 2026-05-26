@@ -41,7 +41,7 @@ export default function TesteGratisProvisioning({ apiMessage }: TesteGratisProvi
         <p className="mt-2 min-h-[1.25rem] text-sm text-gray-600 transition-opacity duration-300">
           {displayMessage}
         </p>
-        <p className="mt-4 text-xs text-gray-500">
+        <p className="mt-4 text-xs font-bold text-gray-600">
           Isso pode levar alguns minutos. Não feche esta página.
         </p>
       </div>
