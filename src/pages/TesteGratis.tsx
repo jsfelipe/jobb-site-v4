@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import {
   LOGIN_MAX_LENGTH,
   SUBDOMINIO_MAX_LENGTH,
+  sanitizeAccessIdentifier,
   validateLogin,
   validateSubdominio,
 } from '@/utils/testeGratisAccessValidation';
@@ -153,38 +154,14 @@ export default function TesteGratis() {
   };
 
   const handleSubdominioChange = (raw: string) => {
-    const value = raw.toLowerCase();
-
-    if (value.length > SUBDOMINIO_MAX_LENGTH) {
-      showAlert(`O domínio pode ter no máximo ${SUBDOMINIO_MAX_LENGTH} caracteres.`);
-      return;
-    }
-
-    const validationError = validateSubdominio(value);
-    if (validationError && value.trim() !== '') {
-      showAlert(validationError);
-      return;
-    }
-
+    const value = sanitizeAccessIdentifier(raw).slice(0, SUBDOMINIO_MAX_LENGTH);
     setSubdominio(value);
     setDominioAvailable(null);
     setDominioMessage('');
   };
 
   const handleLoginChange = (raw: string) => {
-    const value = raw.toLowerCase();
-
-    if (value.length > LOGIN_MAX_LENGTH) {
-      showAlert(`O login pode ter no máximo ${LOGIN_MAX_LENGTH} caracteres.`);
-      return;
-    }
-
-    const validationError = validateLogin(value);
-    if (validationError && value.trim() !== '') {
-      showAlert(validationError);
-      return;
-    }
-
+    const value = sanitizeAccessIdentifier(raw).slice(0, LOGIN_MAX_LENGTH);
     setLogin(value);
   };
 
@@ -192,17 +169,17 @@ export default function TesteGratis() {
     const value = subdominio.trim().toLowerCase();
     setSubdominio(value);
 
+    if (!value) {
+      setDominioMessage('');
+      setDominioAvailable(null);
+      return;
+    }
+
     const validationError = validateSubdominio(value);
     if (validationError) {
       showAlert(validationError);
       setDominioAvailable(null);
       setDominioMessage('');
-      return;
-    }
-
-    if (!value) {
-      setDominioMessage('');
-      setDominioAvailable(null);
       return;
     }
 
@@ -246,6 +223,16 @@ export default function TesteGratis() {
 
     if (dominioAvailable === false) {
       setError('Escolha um domínio disponível.');
+      return;
+    }
+
+    if (senha.length < 6) {
+      showAlert('A senha deve ter no mínimo 6 caracteres.');
+      return;
+    }
+
+    if (senha !== senhaConfirmacao) {
+      showAlert('As senhas não conferem.');
       return;
     }
 
@@ -558,7 +545,12 @@ export default function TesteGratis() {
                         className={inputClass}
                         onChange={(e) => handleLoginChange(e.target.value)}
                         onBlur={() => {
-                          const validationError = validateLogin(login.trim());
+                          const value = login.trim().toLowerCase();
+                          setLogin(value);
+                          if (!value) {
+                            return;
+                          }
+                          const validationError = validateLogin(value);
                           if (validationError) {
                             showAlert(validationError);
                           }
