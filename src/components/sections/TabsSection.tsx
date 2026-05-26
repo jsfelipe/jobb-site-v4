@@ -26,6 +26,9 @@ import {
     PrinterIcon,
     BarcodeIcon,
     CheckSquareOffsetIcon,
+    CaretLeft,
+    CaretRight,
+    X,
 } from '@phosphor-icons/react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
@@ -35,6 +38,7 @@ const tabImages: Record<string, string[]> = {
     orcamentos: [
         '/images/funcionalidades/orcamentos/audiovisual.webp',
         '/images/funcionalidades/orcamentos/publicitario.webp',
+        '/images/funcionalidades/orcamentos/editar-orcamento.jpg',
     ],
     /* campanhas: [
         '/images/funcionalidades/tela2.jpg.webp',
@@ -48,10 +52,11 @@ const tabImages: Record<string, string[]> = {
         '/images/funcionalidades/financeiro/relacao-pagamentos.webp',
     ],
     tarefas: [
-        '/images/funcionalidades/tarefas/gestao-tarefas.webp',
+        '/images/funcionalidades/tarefas/kanban.jpg',
+        '/images/funcionalidades/tarefas/calendario.jpg',
         '/images/funcionalidades/tarefas/gantt.webp',
+        '/images/funcionalidades/tarefas/gestao-tarefas.webp',
         '/images/funcionalidades/tarefas/cadastro-projeto.webp',
-
     ],
     relatorios: [
         '/images/funcionalidades/relatorios/orcamento-periodo.webp',
@@ -59,9 +64,8 @@ const tabImages: Record<string, string[]> = {
         '/images/funcionalidades/relatorios/conta-pagar.webp',
     ],
     seguranca: [
-        '/images/funcionalidades/cadastro/cadastro-permissoes.webp',
-        '/images/funcionalidades/cadastro/cadastro-produtos.webp',
-        '/images/funcionalidades/cadastro/cadastro-unidades.webp',
+        '/images/funcionalidades/seguranca/cadastro-permissoes.webp',
+        '/images/funcionalidades/seguranca/permissoes.jpg',
     ],
 };
 
@@ -242,50 +246,191 @@ const tabsData: { id: string; title: string; tags: string[]; items: BentoItem[] 
 // ─── Carousel Component ───
 function ImageCarousel({ images }: { images: string[] }) {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isZoomed, setIsZoomed] = useState(false);
 
     const next = useCallback(() => {
         setCurrentIndex((prev) => (prev + 1) % images.length);
     }, [images.length]);
 
+    const prev = useCallback(() => {
+        setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+    }, [images.length]);
+
+    // Autoplay apenas quando não estiver com o lightbox ativado
     useEffect(() => {
+        if (isZoomed) return;
         const interval = setInterval(next, 4000);
         return () => clearInterval(interval);
-    }, [next]);
+    }, [next, isZoomed]);
+
+    // Atalhos de teclado quando o zoom estiver aberto
+    useEffect(() => {
+        if (!isZoomed) return;
+
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                setIsZoomed(false);
+            } else if (e.key === 'ArrowRight') {
+                next();
+            } else if (e.key === 'ArrowLeft') {
+                prev();
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [isZoomed, next, prev]);
 
     return (
-        <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden bg-card">
-            <AnimatePresence mode="wait">
-                <motion.div
-                    key={currentIndex}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="absolute inset-0"
+        <>
+            {/* Carousel Container */}
+            <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden bg-card group select-none">
+                {/* Imagem do carrossel */}
+                <div 
+                    onClick={() => setIsZoomed(true)}
+                    className="absolute inset-0 cursor-zoom-in overflow-hidden"
                 >
-                    <img
-                        src={images[currentIndex]}
-                        alt={`Funcionalidade tela ${currentIndex + 1}`}
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 900px"
-                    />
-                </motion.div>
-            </AnimatePresence>
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={currentIndex}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.5 }}
+                            className="absolute inset-0"
+                        >
+                            <img
+                                src={images[currentIndex]}
+                                alt={`Funcionalidade tela ${currentIndex + 1}`}
+                                className="object-cover w-full h-full hover:scale-[1.02] transition-transform duration-700"
+                                sizes="(max-width: 768px) 100vw, 900px"
+                            />
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
 
-            {/* Dots */}
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                {images.map((_, i) => (
-                    <button
-                        key={i}
-                        onClick={() => setCurrentIndex(i)}
-                        className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === currentIndex
-                            ? 'bg-jobb-orange w-6'
-                            : 'bg-gray-400/80 hover:bg-gray-600/80'
-                            }`}
-                    />
-                ))}
+                {/* Seta Prev */}
+                <button
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        prev();
+                    }}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 rounded-full bg-black/40 text-white backdrop-blur-md border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-jobb-orange hover:border-jobb-orange hover:scale-105 active:scale-95 cursor-pointer"
+                    aria-label="Imagem anterior"
+                >
+                    <CaretLeft size={24} weight="bold" />
+                </button>
+
+                {/* Seta Next */}
+                <button
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        next();
+                    }}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 rounded-full bg-black/40 text-white backdrop-blur-md border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-jobb-orange hover:border-jobb-orange hover:scale-105 active:scale-95 cursor-pointer"
+                    aria-label="Próxima imagem"
+                >
+                    <CaretRight size={24} weight="bold" />
+                </button>
+
+                {/* Dots */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                    {images.map((_, i) => (
+                        <button
+                            key={i}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setCurrentIndex(i);
+                            }}
+                            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${i === currentIndex
+                                ? 'bg-jobb-orange w-6'
+                                : 'bg-gray-400/80 hover:bg-gray-600/80'
+                                }`}
+                            aria-label={`Ir para imagem ${i + 1}`}
+                        />
+                    ))}
+                </div>
             </div>
-        </div>
+
+            {/* Lightbox / Zoom Modal */}
+            <AnimatePresence>
+                {isZoomed && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        onClick={() => setIsZoomed(false)}
+                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md select-none"
+                    >
+                        {/* Botão de Fechar */}
+                        <button
+                            onClick={() => setIsZoomed(false)}
+                            className="absolute top-6 right-6 z-[60] flex items-center justify-center w-12 h-12 rounded-full bg-white/10 text-white hover:bg-white/20 border border-white/10 transition-colors cursor-pointer"
+                            aria-label="Fechar visualização"
+                        >
+                            <X size={24} weight="bold" />
+                        </button>
+
+                        {/* Seta Prev no Zoom */}
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                prev();
+                            }}
+                            className="absolute left-6 top-1/2 -translate-y-1/2 z-[60] flex items-center justify-center w-14 h-14 rounded-full bg-white/10 text-white border border-white/10 hover:bg-jobb-orange hover:border-jobb-orange hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                            aria-label="Imagem anterior"
+                        >
+                            <CaretLeft size={28} weight="bold" />
+                        </button>
+
+                        {/* Seta Next no Zoom */}
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                next();
+                            }}
+                            className="absolute right-6 top-1/2 -translate-y-1/2 z-[60] flex items-center justify-center w-14 h-14 rounded-full bg-white/10 text-white border border-white/10 hover:bg-jobb-orange hover:border-jobb-orange hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                            aria-label="Próxima imagem"
+                        >
+                            <CaretRight size={28} weight="bold" />
+                        </button>
+
+                        {/* Container da imagem com zoom */}
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.9, opacity: 0 }}
+                            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                            onClick={(e) => e.stopPropagation()}
+                            className="relative max-w-[90vw] max-h-[85vh] flex flex-col items-center gap-4"
+                        >
+                            <img
+                                src={images[currentIndex]}
+                                alt={`Funcionalidade zoom tela ${currentIndex + 1}`}
+                                className="max-w-full max-h-[80vh] object-contain rounded-xl shadow-2xl cursor-zoom-out border border-white/10"
+                                onClick={() => setIsZoomed(false)}
+                            />
+
+                            {/* Paginação Dots no Zoom */}
+                            <div className="flex gap-2">
+                                {images.map((_, i) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => setCurrentIndex(i)}
+                                        className={`w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${i === currentIndex
+                                            ? 'bg-jobb-orange w-6'
+                                            : 'bg-white/40 hover:bg-white/60'
+                                            }`}
+                                        aria-label={`Ir para imagem ${i + 1}`}
+                                    />
+                                ))}
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </>
     );
 }
 

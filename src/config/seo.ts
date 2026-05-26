@@ -1,7 +1,7 @@
 export const SITE_URL = 'https://sistemajobb.com.br';
 
 export const FAVICON_URL =
-  'https://arquivos-jobbgestor.s3.amazonaws.com/appImgs/favicon.png';
+  '/favicon.png';
 
 export const GTM_ID = 'GTM-5GJQK9J';
 export const GA_UA_ID = 'UA-2333523-48';
