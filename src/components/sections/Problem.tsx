@@ -44,7 +44,7 @@ export function Problem() {
                                 "Vários sistemas separados que não interagem.",
                                 "Horas perdidas na montagem do orçamento.",
                                 "Pagamentos atrasados por esquecimento.",
-                                "Conheça o sistema Jobb e dê um boost na sua produtora."
+                                "Conheça o Sistema Jobb e dê um boost na sua produtora."
                             ].map((item, i, arr) => {
                                 const isLast = i === arr.length - 1;
                                 return (

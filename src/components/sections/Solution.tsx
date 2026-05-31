@@ -40,12 +40,12 @@ export function Solution() {
                 {/* Main Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                     {[
-                        { icon: ChatCircleTextIcon, title: "Atendimento", desc: "Cadastre os clientes, agências e fornecedores, faça os orçamentos, visualize e envie diretamente pelo sistema." },
-                        { icon: GearIcon, title: "Gestão da produção", desc: "Cadastro da mão de obra envolvida, prestação de contas das despesas de produção por Jobb. Tudo numa única tela, sem complicações." },
+                        { icon: ChatCircleTextIcon, title: "Atendimento", desc: "Cadastre os clientes, agências e fornecedores, faça os orçamentos, calcule o valor final desejado usando fórmulas feitas para produtoas." },
+                        { icon: FilePdfIcon, title: "Envio de Proposta em PDF", desc: "Crie sua carta de orçamento com o timbrado ou marca da sua empresa e visualize antes de enviar." },
+                        { icon: GearIcon, title: "Gestão da produção", desc: "Cadastro da mão de obra e fornecedores envolvidos, prestação de contas das despesas de produção por Job. Tudo numa única tela, sem complicações." },
                         { icon: CurrencyDollarIcon, title: "Financeiro completo", desc: "Financeiro totalmente integrado com a produção: faturamento, contas a pagar e receber, cheques, conciliação bancária, entre outros." },
-                        { icon: FilePdfIcon, title: "Envio de PDF", desc: "Crie sua carta de orçamento com o timbrado ou marca da sua empresa e visualize antes de enviar." },
                         { icon: GameControllerIcon, title: "Controle do projeto", desc: "Controle seus prazos, tarefas e tempo. Melhore a comunicação entre a equipe e tenha um calendário de execução." },
-                        { icon: ChartBarIcon, title: "Relatórios gerenciais", desc: "Tenha numa única tela uma visão completa do andamento do orçamento, pagamentos, recebimentos e lucro." },
+                        { icon: ChartBarIcon, title: "Relatórios gerenciais", desc: "Previsto X realizado.Lucratividade do projeto de maneira rápida. Tenha numa única tela uma visão completa do andamento do orçamento, pagamentos, recebimentos e lucro. " },
                     ].map((feature, i) => (
                         <MotionDiv
                             key={i}
