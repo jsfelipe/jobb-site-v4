@@ -23,12 +23,12 @@ export default function PoliticaPrivacidadePage() {
 
                     <div className="container-custom max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                         <p>
-                            Esta Política de Privacidade descreve como a Unity Brasil Tecnologia da Informação Ltda. (“CONTRATADA”, “nós”, “Sistema Jobb”) coleta, utiliza, armazena e protege os dados pessoais no uso do sistema Jobb, em conformidade com a Lei Geral de Proteção de Dados Pessoais — LGPD (Lei nº 13.709/2018). Ao utilizar o sistema, o usuário (“CONTRATANTE” ou “usuário”) concorda com os termos desta Política.
+                            Esta Política de Privacidade descreve como a JOBBLIVE TECNOLOGIA LTDA (“CONTRATADA”, “nós”, “Sistema Jobb”) coleta, utiliza, armazena e protege os dados pessoais no uso do sistema Jobb, em conformidade com a Lei Geral de Proteção de Dados Pessoais — LGPD (Lei nº 13.709/2018). Ao utilizar o sistema, o usuário (“CONTRATANTE” ou “usuário”) concorda com os termos desta Política.
                         </p>
 
                         <h2 className="text-2xl font-semibold mt-10 mb-4 text-white">Controlador e Operador</h2>
                         <p><strong>Controlador dos dados:</strong> o CONTRATANTE</p>
-                        <p><strong>Operadora dos dados:</strong> Unity Brasil Tecnologia da Informação Ltda., CNPJ 06.013.344/0001-11.</p>
+                        <p><strong>Operadora dos dados:</strong> JOBBLIVE TECNOLOGIA LTDA, CNPJ 65.251.197/0001-87, com sede na Av. Governador Agamenon Magalhães, 4575 – Sala 1401, Edifício Emp. Nassau, Caixa Postal 018, Paissandu, Recife/PE, CEP: 50070-255.</p>
                         <p>O CONTRATANTE insere e gerencia os dados pessoais próprios e de terceiros; a CONTRATADA apenas processa essas informações para execução dos serviços contratados.</p>
 
                         <h2 className="text-2xl font-semibold mt-10 mb-4 text-white">Dados pessoais coletados</h2>
