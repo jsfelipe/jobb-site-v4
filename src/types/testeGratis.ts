@@ -81,6 +81,15 @@ export interface TesteGratisSuccessState {
   login: string;
 }
 
+export interface TesteGratisCreatingState {
+  creating: true;
+  payload: CriarContaTestePayload;
+}
+
+export type TesteGratisSucessoLocationState =
+  | TesteGratisSuccessState
+  | TesteGratisCreatingState;
+
 export const TESTE_GRATIS_STORAGE_KEYS = {
   idCliente: 'testeGratis_id_cliente',
   email: 'testeGratis_email',

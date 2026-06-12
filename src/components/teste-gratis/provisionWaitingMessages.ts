@@ -116,16 +116,3 @@ export function shuffleProvisionMessages(): string[] {
   }
   return list;
 }
-
-const GENERIC_API_MESSAGES = new Set([
-  'aguardando processamento...',
-  'processando criação da sua conta...',
-  'iniciando criação da sua conta...',
-]);
-
-export function isGenericApiProgressMessage(message: string | undefined): boolean {
-  if (!message?.trim()) {
-    return true;
-  }
-  return GENERIC_API_MESSAGES.has(message.trim().toLowerCase());
-}

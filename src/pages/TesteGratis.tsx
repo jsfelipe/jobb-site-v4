@@ -1,7 +1,6 @@
 import { FormEvent, useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import TesteGratisAlertDialog from '@/components/teste-gratis/TesteGratisAlertDialog';
-import TesteGratisProvisioning from '@/components/teste-gratis/TesteGratisProvisioning';
 import { Button } from '@/components/ui/button';
 import {
   LOGIN_MAX_LENGTH,
@@ -10,7 +9,7 @@ import {
   validateLogin,
   validateSubdominio,
 } from '@/utils/testeGratisAccessValidation';
-import { criarContaTeste, submitTesteGratis, verificarDominio } from '@/services/testeGratisApi';
+import { submitTesteGratis, verificarDominio } from '@/services/testeGratisApi';
 import {
   INTERESSE_OPTIONS,
   TESTE_GRATIS_STORAGE_KEYS,
@@ -18,7 +17,7 @@ import {
   type TesteGratisForm,
 } from '@/types/testeGratis';
 
-type Step = 1 | 2 | 'creating';
+type Step = 1 | 2;
 
 const initialState: TesteGratisForm = {
   nome: '',
@@ -57,7 +56,6 @@ export default function TesteGratis() {
   const [dominioMessage, setDominioMessage] = useState('');
   const [dominioAvailable, setDominioAvailable] = useState<boolean | null>(null);
   const [checkingDominio, setCheckingDominio] = useState(false);
-  const [provisioningMessage, setProvisioningMessage] = useState('');
   const [alertMessage, setAlertMessage] = useState('');
   const [alertOpen, setAlertOpen] = useState(false);
 
@@ -196,7 +194,7 @@ export default function TesteGratis() {
     }
   };
 
-  const handleStep2Submit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleStep2Submit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setError('');
 
@@ -240,12 +238,10 @@ export default function TesteGratis() {
       return;
     }
 
-    setStep('creating');
-    setProvisioningMessage('Iniciando criação da sua conta...');
-
-    try {
-      const result = await criarContaTeste(
-        {
+    navigate('/teste-gratis/sucesso', {
+      state: {
+        creating: true,
+        payload: {
           id_cliente: idCliente,
           email: leadEmail,
           subdominio: subdominioValue,
@@ -253,39 +249,15 @@ export default function TesteGratis() {
           senha,
           senha_confirmacao: senhaConfirmacao,
         },
-        (message) => setProvisioningMessage(message)
-      );
-
-      sessionStorage.removeItem(TESTE_GRATIS_STORAGE_KEYS.idCliente);
-      sessionStorage.removeItem(TESTE_GRATIS_STORAGE_KEYS.email);
-
-      if (!result.link || !result.subdominio) {
-        throw new Error('Conta criada, mas o link de acesso não foi retornado.');
-      }
-
-      navigate('/teste-gratis/sucesso', {
-        state: {
-          link: result.link,
-          subdominio: result.subdominio,
-          login: result.login ?? login.trim(),
-        },
-      });
-    } catch (err) {
-      setStep(2);
-      setProvisioningMessage('');
-      setError(err instanceof Error ? err.message : 'Erro ao criar conta. Tente novamente.');
-    }
+      },
+    });
   };
 
   const sidebarTitle =
-    step === 1
-      ? 'Vamos começar seu período de testes!'
-      : step === 2
-        ? 'Crie o acesso da sua conta teste'
-        : 'Quase lá!';
+    step === 1 ? 'Vamos começar seu período de testes!' : 'Crie o acesso da sua conta teste';
 
   const sidebarSubtitle =
-    step === 1 ? 'Aproveite!' : step === 2 ? 'Escolha domínio, login e senha' : 'Aguarde um instante';
+    step === 1 ? 'Aproveite!' : 'Escolha domínio, login e senha';
 
   return (
     <>
@@ -312,10 +284,6 @@ export default function TesteGratis() {
             </div>
 
             <div className="bg-white p-6 md:w-3/5 md:rounded-r-2xl rounded-b-2xl md:rounded-bl-none">
-              {step === 'creating' && (
-                <TesteGratisProvisioning apiMessage={provisioningMessage} />
-              )}
-
               {step === 1 && (
                 <form onSubmit={handleStep1Submit} className="space-y-4">
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
