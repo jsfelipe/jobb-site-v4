@@ -23,77 +23,78 @@ export interface TesteGratisResponse {
   data?: TesteGratisClienteData;
 }
 
-export interface VerificarDominioResponse {
-  status?: boolean;
-  available?: boolean;
-  message?: string;
-}
-
-export interface CriarContaTestePayload {
-  id_cliente: number;
-  email: string;
-  subdominio: string;
-  login: string;
-  senha: string;
-  senha_confirmacao: string;
-}
-
-export type ProvisionStatus =
-  | 'queued'
-  | 'processing'
-  | 'completed'
-  | 'failed'
-  | 'pending'
-  | 'not_found';
-
-export interface CriarContaJobResponse {
-  status?: boolean;
-  job_id?: string;
-  link?: string;
-  subdominio?: string;
-  login?: string;
-  message?: string;
-  provision_status?: ProvisionStatus;
-}
-
-export interface ProvisionStatusResponse {
-  status?: boolean;
-  provision_status?: ProvisionStatus;
-  job_id?: string;
-  step?: string;
-  message?: string;
-  link?: string;
-  subdominio?: string;
-  login?: string | null;
-}
-
-export interface CriarContaTesteResponse {
-  status?: boolean;
-  link?: string;
-  subdominio?: string;
-  login?: string;
-  message?: string;
-}
-
-export interface TesteGratisSuccessState {
-  link: string;
-  subdominio: string;
-  login: string;
-}
-
-export interface TesteGratisCreatingState {
-  creating: true;
-  payload: CriarContaTestePayload;
-}
-
-export type TesteGratisSucessoLocationState =
-  | TesteGratisSuccessState
-  | TesteGratisCreatingState;
-
-export const TESTE_GRATIS_STORAGE_KEYS = {
-  idCliente: 'testeGratis_id_cliente',
-  email: 'testeGratis_email',
-} as const;
+// --- Tipos do fluxo de criação automática de domínio (desativado — reativar no futuro) ---
+// export interface VerificarDominioResponse {
+//   status?: boolean;
+//   available?: boolean;
+//   message?: string;
+// }
+//
+// export interface CriarContaTestePayload {
+//   id_cliente: number;
+//   email: string;
+//   subdominio: string;
+//   login: string;
+//   senha: string;
+//   senha_confirmacao: string;
+// }
+//
+// export type ProvisionStatus =
+//   | 'queued'
+//   | 'processing'
+//   | 'completed'
+//   | 'failed'
+//   | 'pending'
+//   | 'not_found';
+//
+// export interface CriarContaJobResponse {
+//   status?: boolean;
+//   job_id?: string;
+//   link?: string;
+//   subdominio?: string;
+//   login?: string;
+//   message?: string;
+//   provision_status?: ProvisionStatus;
+// }
+//
+// export interface ProvisionStatusResponse {
+//   status?: boolean;
+//   provision_status?: ProvisionStatus;
+//   job_id?: string;
+//   step?: string;
+//   message?: string;
+//   link?: string;
+//   subdominio?: string;
+//   login?: string | null;
+// }
+//
+// export interface CriarContaTesteResponse {
+//   status?: boolean;
+//   link?: string;
+//   subdominio?: string;
+//   login?: string;
+//   message?: string;
+// }
+//
+// export interface TesteGratisSuccessState {
+//   link: string;
+//   subdominio: string;
+//   login: string;
+// }
+//
+// export interface TesteGratisCreatingState {
+//   creating: true;
+//   payload: CriarContaTestePayload;
+// }
+//
+// export type TesteGratisSucessoLocationState =
+//   | TesteGratisSuccessState
+//   | TesteGratisCreatingState;
+//
+// export const TESTE_GRATIS_STORAGE_KEYS = {
+//   idCliente: 'testeGratis_id_cliente',
+//   email: 'testeGratis_email',
+// } as const;
 
 export const INTERESSE_OPTIONS = [
   { value: 'ApenasOrcamentos', label: 'Apenas Controle dos Orçamentos' },

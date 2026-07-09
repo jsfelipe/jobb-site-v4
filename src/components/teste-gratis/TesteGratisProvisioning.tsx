@@ -1,3 +1,4 @@
+// Desativado no fluxo atual (só cadastro JobbAdmin). Manter para reativar criação automática de domínio.
 import { useEffect, useMemo, useState } from 'react';
 import { shuffleProvisionMessages } from '@/components/teste-gratis/provisionWaitingMessages';
 

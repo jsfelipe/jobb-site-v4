@@ -4,19 +4,20 @@ import { Link } from 'react-router-dom';
 interface TesteGratisSuccessProps {
   title: string;
   message: string;
-  link?: string;
-  subdominio?: string;
-  login?: string;
+  // --- Props do fluxo com domínio/login (desativado — reativar no futuro) ---
+  // link?: string;
+  // subdominio?: string;
+  // login?: string;
 }
 
 export default function TesteGratisSuccessLayout({
   title,
   message,
-  link,
-  subdominio,
-  login,
+  // link,
+  // subdominio,
+  // login,
 }: TesteGratisSuccessProps) {
-  const accessUrl = link ?? 'https://app.sistemajobb.com.br';
+  // const accessUrl = link ?? 'https://app.sistemajobb.com.br';
 
   return (
     <>
@@ -30,7 +31,7 @@ export default function TesteGratisSuccessLayout({
             <img src="/images/icon/check.svg" alt="" className="mb-6 h-20 w-20" />
             <h2 className="text-xl font-bold leading-relaxed text-white md:text-2xl">{message}</h2>
 
-            {(subdominio || login || link) && (
+            {/* {(subdominio || login || link) && (
               <div className="mt-6 space-y-3 text-white/90">
                 <p className="text-sm">
                   Acesse{' '}
@@ -62,7 +63,7 @@ export default function TesteGratisSuccessLayout({
                   Acessar meu Jobb
                 </a>
               </div>
-            )}
+            )} */}
 
             <Link to="/" className="mt-8 text-sm text-white/70 underline hover:text-white">
               Voltar ao site

@@ -1,3 +1,4 @@
+// Desativado no fluxo atual (só cadastro JobbAdmin). Manter para reativar criação automática de domínio.
 export const PROVISION_WAITING_MESSAGES: readonly string[] = [
   'Validando seus dados...',
   'Preparando seu ambiente de teste...',

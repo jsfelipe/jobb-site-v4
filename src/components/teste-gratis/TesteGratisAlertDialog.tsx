@@ -1,3 +1,4 @@
+// Desativado no fluxo atual (só cadastro JobbAdmin). Manter para reativar criação automática de domínio.
 import { Button } from '@/components/ui/button';
 
 interface TesteGratisAlertDialogProps {

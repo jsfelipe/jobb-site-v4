@@ -1,3 +1,4 @@
+// Desativado no fluxo atual (só cadastro JobbAdmin). Manter para reativar criação automática de domínio.
 export const SUBDOMINIO_MAX_LENGTH = 20;
 export const LOGIN_MAX_LENGTH = 10;
 
