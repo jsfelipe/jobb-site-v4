@@ -44,6 +44,7 @@ export function Footer() {
                         </div>
                         <div className="space-y-6">
                             <Link to="https://blog.sistemajobb.com.br/" target="_blank" className="block text-sm text-jobb-text-secondary hover:text-white">Blog</Link>
+                            <Link to="https://apiv2.sistemajobb.com.br/api/docs" target="_blank" rel="noopener noreferrer" className="block text-sm text-jobb-text-secondary hover:text-white">Documentação da API</Link>
                             <Link to="/termos-de-uso" className="block text-sm text-jobb-text-secondary hover:text-white">Termos de uso</Link>
                             <Link to="/politica-de-privacidade" className="block text-sm text-jobb-text-secondary hover:text-white">Política de Privacidade</Link>
                         </div>
