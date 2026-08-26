@@ -12,7 +12,7 @@ export function Footer() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="flex flex-col md:flex-row justify-between items-center  gap-12 mb-16"
+                    className="flex flex-col md:flex-row justify-between items-center md:items-start gap-12 mb-16"
                 >
                     <div className="flex flex-col items-center md:items-start max-w-xs text-center md:text-left">
                         <img src="/images/logo-jobb-light.svg" alt="Jobb" width={80} height={80} />
@@ -36,7 +36,7 @@ export function Footer() {
                         </div>
                     </div>
 
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16 w-full md:w-auto">
+                    <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8 md:gap-16 w-full md:w-auto">
                         <div className="space-y-6">
                             <Link to="/funcionalidades" className="block text-sm text-jobb-text-secondary hover:text-white">Funcionalidades</Link>
                             <Link to="/estudantes-professores" className="block text-sm text-jobb-text-secondary hover:text-white">Estudantes/Professores</Link>
