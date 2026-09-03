@@ -106,10 +106,10 @@ function loadScript(src: string): Promise<void> {
 }
 
 function getWidgetAssetUrls() {
-  // Assets locais (public/) — não dependem da API estar no ar só pra carregar o JS/CSS
+  const origin = getOrigin();
   return {
-    jsUrl: `/chat-widget/chat-widget.v1.js?v=${WIDGET_ASSET_V}`,
-    cssUrl: `/chat-widget/chat-widget.v1.css?v=${WIDGET_ASSET_V}`,
+    jsUrl: `${origin}/chat-widget/chat-widget.v1.js?v=${WIDGET_ASSET_V}`,
+    cssUrl: `${origin}/chat-widget/chat-widget.v1.css?v=${WIDGET_ASSET_V}`,
   };
 }
 
