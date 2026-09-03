@@ -3,7 +3,7 @@ import { ChatCircle } from '@phosphor-icons/react';
 
 const GUEST_ID_KEY = 'jobb_chat_guest_id';
 const PORTAL_TOKEN_KEY = 'jobb_chat_portal_token';
-const WIDGET_ASSET_V = '20260903-textarea-color';
+const WIDGET_ASSET_V = '20260903-visitor-name';
 
 function normalizeApiBase(url: string): string {
   const value = url.replace(/\/$/, '');

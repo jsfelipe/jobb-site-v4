@@ -199,6 +199,7 @@
       uiPhase: 'ready',
       onboardingStep: null,
       onboardingDraft: { nome: '', email: '', celular: '' },
+      visitorNome: '',
       perfilColetado: false,
       requiresPerfil: false,
       iaTyping: false,
@@ -282,10 +283,19 @@
           sideClass += ' is-sistema';
         }
         var dateLabel = formatDateTime(m.createdAt);
+        var displayName = String(m.senderName || '').trim();
+        if (!displayName && m.sender === 'client') {
+          displayName = String(state.visitorNome || '').trim();
+        }
+        if (!displayName && m.sender === 'client') {
+          displayName = 'Você';
+        }
         html += '<div class="jobb-chat-widget__msg ' + sideClass + '">';
         html += '<div class="jobb-chat-widget__bubble">';
         html += '<div class="jobb-chat-widget__sender-row">';
-        html += '<span class="jobb-chat-widget__sender">' + escapeHtml(m.senderName) + '</span>';
+        if (displayName) {
+          html += '<span class="jobb-chat-widget__sender">' + escapeHtml(displayName) + '</span>';
+        }
         if (dateLabel) {
           html += '<span class="jobb-chat-widget__sender-time">' + escapeHtml(dateLabel) + '</span>';
         }
@@ -443,9 +453,15 @@
           if (conv) {
             state.perfilColetado = !!conv.perfil_coletado;
             state.requiresPerfil = !!conv.requires_perfil;
+            if (conv.nome_usuario) {
+              state.visitorNome = String(conv.nome_usuario).trim();
+            }
           } else {
             state.perfilColetado = true;
             state.requiresPerfil = false;
+          }
+          if (!state.visitorNome) {
+            state.visitorNome = nome;
           }
           finishOnboardingPhase();
           showStatus('', false);
@@ -697,12 +713,21 @@
           state.iaAtiva = !!(conv && conv.ia_ativa);
           state.perfilColetado = !!(conv && conv.perfil_coletado);
           state.requiresPerfil = !!(conv && conv.requires_perfil);
+          if (conv && conv.nome_usuario) {
+            state.visitorNome = String(conv.nome_usuario).trim();
+          }
           syncUiPhase();
           return apiGet('/portal/chat/mensagens', { per_page: 50 });
         })
         .then(function (list) {
           var raw = list && list.data ? list.data : [];
-          state.mensagens = raw.map(serializeMessage);
+          state.mensagens = raw.map(function (msg) {
+            var item = serializeMessage(msg);
+            if (item.sender === 'client' && !String(item.senderName || '').trim() && state.visitorNome) {
+              item.senderName = state.visitorNome;
+            }
+            return item;
+          });
           renderMessages();
           showStatus('', false);
           state.booted = true;
