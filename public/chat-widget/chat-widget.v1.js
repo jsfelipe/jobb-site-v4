@@ -15,8 +15,9 @@
     return value;
   }
 
-  function request(method, url, token, body, isFormData) {
+  function request(method, url, token, body, isFormData, attempt) {
     var headers = { Accept: 'application/json' };
+    var tryCount = typeof attempt === 'number' ? attempt : 0;
     if (token) {
       headers.Authorization = 'Bearer ' + token;
     }
@@ -27,23 +28,35 @@
       method: method,
       headers: headers,
       body: body ? (isFormData ? body : JSON.stringify(body)) : undefined,
-    }).then(function (res) {
-      return res.text().then(function (text) {
-        var data = {};
-        try {
-          data = text ? JSON.parse(text) : {};
-        } catch (e) {
-          data = {};
+    })
+      .then(function (res) {
+        return res.text().then(function (text) {
+          var data = {};
+          try {
+            data = text ? JSON.parse(text) : {};
+          } catch (e) {
+            data = {};
+          }
+          if (!res.ok) {
+            var error = new Error((data && (data.error || data.message)) || 'HTTP ' + res.status);
+            error.status = res.status;
+            error.payload = data;
+            throw error;
+          }
+          return data;
+        });
+      })
+      .catch(function (err) {
+        var isHttp = err && typeof err.status === 'number';
+        if (!isHttp && tryCount < 2) {
+          return new Promise(function (resolve) {
+            setTimeout(resolve, 300 * (tryCount + 1));
+          }).then(function () {
+            return request(method, url, token, body, isFormData, tryCount + 1);
+          });
         }
-        if (!res.ok) {
-          var error = new Error((data && (data.error || data.message)) || 'HTTP ' + res.status);
-          error.status = res.status;
-          error.payload = data;
-          throw error;
-        }
-        return data;
+        throw err;
       });
-    });
   }
 
   function ensureStylesheet(href) {
@@ -670,14 +683,12 @@
       state.bootPromise = Promise.resolve(options.tokenProvider(false))
         .then(function (token) {
           state.token = token;
-          if (state.atendentesLoaded) {
-            return null;
+          // avatares não bloqueiam abertura do chat
+          if (!state.atendentesLoaded) {
+            loadAttendants().finally(function () {
+              state.atendentesLoaded = true;
+            });
           }
-          return loadAttendants().finally(function () {
-            state.atendentesLoaded = true;
-          });
-        })
-        .then(function () {
           return apiGet('/portal/chat/conversa');
         })
         .then(function (conv) {

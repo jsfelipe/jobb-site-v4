@@ -4,6 +4,8 @@
   bottom: 14px;
   z-index: 1050;
   font-family: Inter, Arial, sans-serif;
+  color: #0f172a;
+  -webkit-text-fill-color: initial;
 }
 
 .jobb-chat-widget__fab {
@@ -178,6 +180,14 @@
   font-weight: 400;
   color: #0f172a;
   background: #fff;
+  caret-color: #0f172a;
+  -webkit-text-fill-color: #0f172a;
+}
+
+.jobb-chat-widget__field input::placeholder {
+  color: #94a3b8;
+  -webkit-text-fill-color: #94a3b8;
+  opacity: 1;
 }
 
 .jobb-chat-widget__field input:focus {
@@ -335,8 +345,24 @@
   border-radius: 12px;
   border: 1px solid #e5e7eb;
   padding: 10px;
-  font-size: 11px;
+  font-size: 13px;
   min-height: 52px;
+  color: #0f172a;
+  background: #fff;
+  caret-color: #0f172a;
+  -webkit-text-fill-color: #0f172a;
+}
+
+.jobb-chat-widget__textarea::placeholder {
+  color: #94a3b8;
+  -webkit-text-fill-color: #94a3b8;
+  opacity: 1;
+}
+
+.jobb-chat-widget__textarea:focus {
+  outline: none;
+  border-color: #ef6c1d;
+  box-shadow: 0 0 0 3px rgba(239, 108, 29, 0.15);
 }
 
 .jobb-chat-widget__actions {
