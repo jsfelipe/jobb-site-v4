@@ -9,7 +9,7 @@ import TermosDeUso from './pages/TermosDeUso';
 import TesteGratis from './pages/TesteGratis';
 import TesteGratisSucesso from './pages/TesteGratisSucesso';
 import TesteGratisPagamentoSuccess from './pages/TesteGratisPagamentoSuccess';
-import { WhatsAppWidget } from './components/WhatsAppWidget';
+import { JobbChatWidget } from './components/JobbChatWidget';
 import { SeoHead } from './components/SeoHead';
 
 function ScrollToTop() {
@@ -42,7 +42,7 @@ function App() {
         <Route path="/teste-gratis/sucesso" element={<TesteGratisSucesso />} />
         <Route path="/teste-gratis/pagamentosuccess" element={<TesteGratisPagamentoSuccess />} />
       </Routes>
-      <WhatsAppWidget />
+      <JobbChatWidget />
     </BrowserRouter>
   );
 }
