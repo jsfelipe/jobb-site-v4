@@ -4,6 +4,7 @@ import { ChatCircle } from '@phosphor-icons/react';
 const GUEST_ID_KEY = 'jobb_chat_guest_id';
 const PORTAL_TOKEN_KEY = 'jobb_chat_portal_token';
 const WIDGET_ASSET_V = '20260903-visitor-name';
+const SITE_ORIGEM = 'jobbvideo';
 
 function normalizeApiBase(url: string): string {
   const value = url.replace(/\/$/, '');
@@ -57,7 +58,7 @@ async function bootstrapSiteToken(refresh = false): Promise<string> {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ guest_id: guestId }),
+    body: JSON.stringify({ guest_id: guestId, origem: SITE_ORIGEM }),
   });
   const data = await res.json();
   if (!res.ok || !data.portal_token) {
