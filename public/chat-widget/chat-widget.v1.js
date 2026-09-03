@@ -795,7 +795,7 @@
           if (!exists) {
             state.mensagens.push(item);
           }
-          state.fila = state.fila || 'suporte';
+          state.fila = state.fila || (state.mode === 'site' ? 'comercial' : 'suporte');
           if (typeof payload.ia_ativa === 'boolean') {
             state.iaAtiva = payload.ia_ativa;
           }
