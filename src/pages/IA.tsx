@@ -2,6 +2,7 @@ import { Header } from '@/components/sections/Header';
 import { Footer } from '@/components/sections/Footer';
 import { IAHero } from '@/components/ia/IAHero';
 import { IAMarquee } from '@/components/ia/IAMarquee';
+import { IAControleHumano } from '@/components/ia/IAControleHumano';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import {
@@ -92,6 +93,9 @@ export default function IAPage() {
           <IAHero />
           <IAMarquee />
         </section>
+
+        {/* Seção: Controle Humano em Cada Etapa */}
+        <IAControleHumano />
 
         {/* Highlights / Métricas */}
         <section className="py-12 bg-black/20 border-b border-white/5">
