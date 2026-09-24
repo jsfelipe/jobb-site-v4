@@ -1,5 +1,7 @@
 import { Header } from '@/components/sections/Header';
 import { Footer } from '@/components/sections/Footer';
+import { IAHero } from '@/components/ia/IAHero';
+import { IAMarquee } from '@/components/ia/IAMarquee';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import {
@@ -85,63 +87,10 @@ export default function IAPage() {
       <Header />
 
       <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="relative overflow-hidden py-20 lg:py-28 border-b border-white/5">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-500/10 via-transparent to-transparent pointer-events-none" />
-
-          <div className="container-custom max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-jobb-orange text-sm font-semibold mb-6"
-            >
-              <Sparkle size={18} weight="fill" />
-              <span>Inovação Jobb 4.0</span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-6 max-w-4xl mx-auto leading-tight"
-            >
-              Inteligência Artificial aplicada à{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">
-                Gestão Audiovisual
-              </span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-[#a3a3a3] text-lg sm:text-xl max-w-3xl mx-auto mb-10 leading-relaxed"
-            >
-              Leve a inteligência preditiva para sua produtora. O Jobb combina mais de uma década de experiência no mercado audiovisual com recursos de IA para acelerar orçamentos, blindar seu financeiro e liberar sua equipe para criar.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
-            >
-              <Link
-                to="/teste-gratis"
-                className="w-full sm:w-auto py-3.5 px-8 rounded-2xl gradient font-semibold text-white shadow-lg shadow-orange-500/20 hover:opacity-95 transition-all duration-300 flex items-center justify-center gap-2"
-              >
-                <span>Experimente Grátis por 15 dias</span>
-                <ArrowRight size={18} weight="bold" />
-              </Link>
-              <a
-                href="#recursos"
-                className="w-full sm:w-auto py-3.5 px-8 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 font-semibold text-white transition-all duration-300"
-              >
-                Conhecer Recursos
-              </a>
-            </motion.div>
-          </div>
+        {/* Hero Section e Marquee Conforme Especificações */}
+        <section className="bg-[#f9fafb] pt-8 pb-4 px-4 sm:px-6 lg:px-8 border-b border-slate-200/80 overflow-hidden">
+          <IAHero />
+          <IAMarquee />
         </section>
 
         {/* Highlights / Métricas */}
