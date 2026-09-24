@@ -3,6 +3,7 @@ import { Footer } from '@/components/sections/Footer';
 import { IAHero } from '@/components/ia/IAHero';
 import { IAMarquee } from '@/components/ia/IAMarquee';
 import { IAControleHumano } from '@/components/ia/IAControleHumano';
+import { IAStickyFeatures } from '@/components/ia/IAStickyFeatures';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import {
@@ -96,6 +97,9 @@ export default function IAPage() {
 
         {/* Seção: Controle Humano em Cada Etapa */}
         <IAControleHumano />
+
+        {/* Seção Stacking: Conciliação, Crie orçamentos, Importe orçamentos com IA */}
+        <IAStickyFeatures />
 
         {/* Highlights / Métricas */}
         <section className="py-12 bg-black/20 border-b border-white/5">
