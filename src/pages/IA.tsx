@@ -87,8 +87,8 @@ export default function IAPage() {
       <Header />
 
       <main className="flex-grow">
-        {/* Hero Section e Marquee Conforme Especificações */}
-        <section className="bg-[#f9fafb] pt-8 pb-4 px-4 sm:px-6 lg:px-8 border-b border-slate-200/80 overflow-hidden">
+        {/* Hero Section e Marquee com a cor do site */}
+        <section className="bg-[#232323] pt-8 pb-6 px-4 sm:px-6 lg:px-8 border-b border-white/5 overflow-hidden">
           <IAHero />
           <IAMarquee />
         </section>

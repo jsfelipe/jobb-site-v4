@@ -61,44 +61,6 @@ export function IAHero() {
           </Link>
         </motion.div>
       </div>
-
-      {/* Floating Bottom Navbar */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30">
-        <motion.nav
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.35, ease: 'easeOut' }}
-          className="flex items-center bg-white/90 backdrop-blur-2xl px-1.5 py-1.5 rounded-full shadow-[0_12px_40px_rgba(0,0,0,0.08)] border border-slate-200/40 gap-1 sm:gap-2"
-        >
-          {/* Logo circular placeholder com ✦ */}
-          <div className="w-9 h-9 bg-white border border-slate-100 shadow-sm rounded-full flex items-center justify-center text-slate-800 text-sm font-bold shrink-0">
-            ✦
-          </div>
-
-          {/* Botões de texto */}
-          <a
-            href="#recursos"
-            className="px-3 py-1.5 text-[12px] font-semibold text-slate-500 hover:text-[#0a1b33] transition-colors whitespace-nowrap"
-          >
-            Recursos
-          </a>
-          <a
-            href="#diferenciais"
-            className="px-3 py-1.5 text-[12px] font-semibold text-slate-500 hover:text-[#0a1b33] transition-colors whitespace-nowrap"
-          >
-            Vantagens
-          </a>
-
-          {/* Botão Get in touch */}
-          <Link
-            to="/teste-gratis"
-            className="bg-white px-5 py-2 rounded-full text-[12px] font-semibold text-[#0a1b33] border border-slate-200/60 shadow-sm hover:border-slate-300 transition-all flex items-center gap-1 shrink-0"
-          >
-            <span>Experimente</span>
-            <ChevronRight size={14} className="text-[#0a1b33]" />
-          </Link>
-        </motion.nav>
-      </div>
     </div>
   );
 }
