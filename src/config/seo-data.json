@@ -51,6 +51,11 @@
       "title": "Pagamento confirmado | Sistema Jobb",
       "description": "Gerencie sua Produtora de Vídeo, Cinema, Agência de Eventos, Áudio e Estúdio. Gestão Economia Criativa. Controle todos os processos e custos em cada etapa.",
       "noindex": true
+    },
+    "/ia": {
+      "title": "Inteligência Artificial para Produtoras Audiovisuais | Sistema Jobb",
+      "description": "Gestão audiovisual com inteligência artificial. Automatize orçamentos, previsibilidade financeira e alocação de equipes no Sistema Jobb.",
+      "keywords": "IA audiovisual, inteligência artificial produtora, gestão produtora vídeo com IA, software audiovisual inteligência artificial"
     }
   },
   "prerenderRoutes": [
@@ -58,6 +63,7 @@
     "/funcionalidades",
     "/clientes",
     "/estudantes-professores",
-    "/teste-gratis"
+    "/teste-gratis",
+    "/ia"
   ]
 }
