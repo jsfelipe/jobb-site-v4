@@ -25,9 +25,9 @@ export function IAHero() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="flex flex-col items-start"
         >
-          {/* Tag de destaque do Anexo 2 */}
-          <span className="text-[12px] md:text-[13px] font-bold tracking-[0.16em] text-[#f93f06] uppercase mb-3">
-            Inteligência Artificial no Jobb
+          {/* Tag de destaque no padrão do site */}
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-jobb-orange text-white mb-4 text-[13px] bg-[#0a152d]/80 backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-jobb-orange" /> Inteligência Artificial no Jobb
           </span>
 
           {/* Headline do Anexo 2 */}
@@ -43,17 +43,17 @@ export function IAHero() {
           </p>
 
           {/* Badge informativo do Anexo 2 */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#2b1f1d]/90 border border-orange-950/40 text-[#fca5a5] text-[11px] sm:text-[12px] md:text-[13px] shadow-sm mb-5">
-            <span className="w-2 h-2 rounded-full bg-[#f93f06] shrink-0 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#2b1f1d]/90 border border-orange-950/40 text-[#fca5a5] text-[11px] sm:text-[12px] md:text-[13px] shadow-sm mb-6">
+            <span className="w-2 h-2 rounded-full bg-jobb-orange shrink-0 animate-pulse" />
             <span>A IA sugere e organiza. Sua equipe revisa, confirma e mantém o controle.</span>
           </div>
 
-          {/* Contact / CTA Button */}
+          {/* Contact / CTA Button no padrão do site */}
           <Link to="/teste-gratis">
             <motion.button
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.98 }}
-              className="bg-[#0a152d] hover:bg-[#112347] text-white font-medium text-[13px] md:text-[14px] px-7 py-3 rounded-full transition-colors shadow-md cursor-pointer flex items-center gap-2"
+              className="py-3 px-8 rounded-2xl gradient hover:gradient text-white font-semibold text-[14px] shadow-lg cursor-pointer flex items-center gap-2"
             >
               <span>Começar Teste Grátis</span>
               <ChevronRight size={16} />

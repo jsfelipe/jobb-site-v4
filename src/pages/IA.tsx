@@ -119,87 +119,77 @@ export default function IAPage() {
           </div>
         </section>
 
-        {/* Features Grid */}
-        <section id="recursos" className="py-20 lg:py-24">
-          <div className="container-custom max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                Como a IA transforma o dia a dia da sua produtora
+        {/* Features Grid alinhado ao padrão do site */}
+        <section id="recursos" className="section-padding bg-jobb-dark">
+          <div className="container-custom max-w-6xl mx-auto">
+            <div className="flex flex-col items-center text-center mb-16">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-jobb-orange text-white mb-6 text-[16px]">
+                <CheckCircle size={20} className="text-jobb-orange" /> Recursos com IA
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Como a IA transforma <span className="font-normal text-jobb-text-secondary">o dia a dia da sua produtora</span>
               </h2>
-              <p className="text-[#a3a3a3] text-base sm:text-lg">
-                Funcionalidades pensadas exclusivamente para a rotina dinâmica de produtoras de vídeo, cinema, áudio e eventos.
-              </p>
+              <h3 className="text-jobb-text-secondary max-w-2xl text-[16px] md:text-[18px]">
+                Funcionalidades pensadas exclusivamente para a <span className="text-jobb-orange">rotina audiovisual</span>.
+              </h3>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((feature, idx) => (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.08 }}
-                  className="p-8 rounded-2xl bg-[#1b1b1b]/80 border border-white/5 hover:border-orange-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/5 flex flex-col justify-between"
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  className="bg-card p-8 rounded-3xl transition-colors duration-300 hover:bg-jobb-bg-secondary group cursor-default shadow-none flex flex-col justify-start"
                 >
-                  <div>
-                    <div className="flex items-center justify-between mb-5">
-                      <div className="w-14 h-14 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
-                        {feature.icon}
-                      </div>
-                      <span className="text-xs font-semibold uppercase tracking-wider text-orange-400 bg-orange-400/10 px-3 py-1 rounded-full border border-orange-400/20">
-                        {feature.tag}
-                      </span>
-                    </div>
-
-                    <h3 className="text-xl font-bold text-white mb-3">
-                      {feature.title}
-                    </h3>
-                    <p className="text-[#999] text-sm leading-relaxed">
-                      {feature.description}
-                    </p>
+                  <div className="text-jobb-orange mb-6">
+                    {feature.icon}
                   </div>
+                  <h3 className="text-xl text-white font-bold mb-3">{feature.title}</h3>
+                  <p className="text-jobb-text-secondary leading-relaxed text-[16px]">{feature.description}</p>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Diferencial / Comparativo */}
-        <section className="py-16 bg-[#181818] border-y border-white/5">
-          <div className="container-custom max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#242424] to-[#1a1a1a] border border-white/10 shadow-2xl">
-              <div className="flex flex-col md:flex-row items-center gap-8 justify-between">
+        {/* Diferencial / Comparativo no padrão do site */}
+        <section className="section-padding bg-gradient-to-b from-jobb-dark to-jobb-bg-secondary/40">
+          <div className="container-custom max-w-6xl mx-auto">
+            <div className="bg-card p-8 sm:p-12 rounded-3xl shadow-none border border-white/5">
+              <div className="flex flex-col lg:flex-row items-center gap-10 justify-between">
                 <div className="space-y-4 max-w-xl">
-                  <div className="inline-flex items-center gap-2 text-jobb-orange text-sm font-semibold">
-                    <ClockAfternoon size={20} weight="fill" />
-                    <span>Ganhe velocidade operacional</span>
-                  </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white">
-                    Menos planilhas soltas. Mais inteligência na tomada de decisão.
-                  </h3>
-                  <p className="text-[#a3a3a3] text-sm sm:text-base leading-relaxed">
+                  <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-jobb-orange text-white mb-2 text-[15px]">
+                    <ClockAfternoon size={18} className="text-jobb-orange" /> Velocidade Operacional
+                  </span>
+                  <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
+                    Menos planilhas soltas. <span className="font-normal text-jobb-text-secondary">Mais inteligência na tomada de decisão.</span>
+                  </h2>
+                  <p className="text-jobb-text-secondary leading-relaxed text-[16px]">
                     Com o Jobb, a IA não é apenas um chatbot genérico: ela está profundamente integrada ao seu catálogo de itens, banco de profissionais, tabelas de custos e fluxo de aprovações.
                   </p>
-                  <ul className="space-y-2 pt-2 text-sm text-[#e2e2e2]">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle size={18} className="text-green-500" weight="fill" />
-                      Total aderência aos padrões e tabelas do audiovisual
+                  <ul className="space-y-3 pt-3">
+                    <li className="flex items-center gap-3 text-jobb-text-secondary text-[16px]">
+                      <CheckCircle size={20} className="text-jobb-orange shrink-0" weight="regular" />
+                      <span><strong className="text-white font-semibold">Total aderência</strong> aos padrões e tabelas do audiovisual</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle size={18} className="text-green-500" weight="fill" />
-                      Segurança de dados e confidencialidade total para seus projetos
+                    <li className="flex items-center gap-3 text-jobb-text-secondary text-[16px]">
+                      <CheckCircle size={20} className="text-jobb-orange shrink-0" weight="regular" />
+                      <span><strong className="text-white font-semibold">Segurança de dados</strong> e confidencialidade total para seus projetos</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle size={18} className="text-green-500" weight="fill" />
-                      Configuração imediata e sem atritos na transição
+                    <li className="flex items-center gap-3 text-jobb-text-secondary text-[16px]">
+                      <CheckCircle size={20} className="text-jobb-orange shrink-0" weight="regular" />
+                      <span><strong className="text-white font-semibold">Configuração imediata</strong> e sem atritos na transição</span>
                     </li>
                   </ul>
                 </div>
 
-                <div className="w-full md:w-auto flex flex-col gap-3 min-w-[240px]">
+                <div className="w-full lg:w-auto flex flex-col gap-3 min-w-[240px]">
                   <Link
                     to="/teste-gratis"
-                    className="w-full py-4 px-6 rounded-2xl gradient text-center font-bold text-white shadow-lg hover:opacity-95 transition-all duration-300"
+                    className="w-full py-3.5 px-6 rounded-2xl gradient hover:gradient text-center font-bold text-white shadow-lg transition-all duration-300"
                   >
                     Começar Teste Grátis
                   </Link>
@@ -207,7 +197,7 @@ export default function IAPage() {
                     href="https://wa.me/5511999999999"
                     target="_blank"
                     rel="noreferrer"
-                    className="w-full py-3 px-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 text-center font-semibold text-sm text-white transition-all duration-300"
+                    className="w-full py-3 px-6 rounded-2xl bg-card hover:bg-jobb-bg-secondary text-center font-semibold text-sm text-white transition-all duration-300"
                   >
                     Falar com Especialista
                   </a>
@@ -217,21 +207,24 @@ export default function IAPage() {
           </div>
         </section>
 
-        {/* CTA Final */}
-        <section className="py-20 lg:py-24 text-center">
-          <div className="container-custom max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-6">
-              O futuro da sua produtora começa agora.
+        {/* CTA Final no padrão do site */}
+        <section className="section-padding text-center bg-jobb-dark">
+          <div className="container-custom max-w-4xl mx-auto">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-jobb-orange text-white mb-6 text-[15px]">
+              <CheckCircle size={18} className="text-jobb-orange" /> Comece Hoje
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+              O futuro da sua produtora <span className="font-normal text-jobb-text-secondary">começa agora.</span>
             </h2>
-            <p className="text-[#a3a3a3] text-lg mb-10 max-w-2xl mx-auto">
+            <p className="text-jobb-text-secondary text-[16px] md:text-[18px] mb-10 max-w-2xl mx-auto leading-relaxed">
               Experimente todas as funcionalidades do Jobb 4.0 gratuitamente durante 15 dias e sinta o poder da gestão com inteligência artificial.
             </p>
             <Link
               to="/teste-gratis"
-              className="inline-flex items-center gap-2 py-4 px-10 rounded-2xl gradient font-bold text-white text-lg shadow-xl shadow-orange-500/20 hover:scale-105 transition-all duration-300"
+              className="inline-flex items-center gap-2 py-3.5 px-8 rounded-2xl gradient hover:gradient font-semibold text-white text-[16px] shadow-lg shadow-orange-500/20 hover:scale-105 transition-all duration-300"
             >
               <span>Testar Grátis por 15 dias</span>
-              <ArrowRight size={20} weight="bold" />
+              <ArrowRight size={18} weight="bold" />
             </Link>
           </div>
         </section>
