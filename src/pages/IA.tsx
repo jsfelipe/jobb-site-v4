@@ -4,6 +4,7 @@ import { IAHero } from '@/components/ia/IAHero';
 import { IAMarquee } from '@/components/ia/IAMarquee';
 import { IAControleHumano } from '@/components/ia/IAControleHumano';
 import { IAStickyFeatures } from '@/components/ia/IAStickyFeatures';
+import { IAMCPIntegration } from '@/components/ia/IAMCPIntegration';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import {
@@ -100,6 +101,9 @@ export default function IAPage() {
 
         {/* Seção Stacking: Conciliação, Crie orçamentos, Importe orçamentos com IA */}
         <IAStickyFeatures />
+
+        {/* Seção: Model Context Protocol (MCP) */}
+        <IAMCPIntegration />
 
         {/* Highlights / Métricas */}
         <section className="py-12 bg-black/20 border-b border-white/5">
