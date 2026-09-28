@@ -1,85 +1,50 @@
-import { motion } from 'motion/react';
+import { useRef } from 'react';
+import { Cpu } from 'lucide-react';
+import { useScroll, useSpring } from 'motion/react';
+import { IAMCPWorkflow } from './IAMCPWorkflow';
 
 export function IAMCPIntegration() {
+  const sectionMCPRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionMCPRef,
+    offset: ['start start', '0.5 start']
+  });
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 24,
+    restDelta: 0.001
+  });
+
   return (
-    <section className="section-padding bg-[#191919] border-t border-white/5">
-      <div className="container-custom max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Lado Esquerdo: Conteúdo Textual */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col items-start"
-          >
-            {/* Tag / Eyebrow em laranja uppercase */}
-            <span className="text-xs sm:text-sm font-semibold tracking-wider text-[#FF4D00] uppercase mb-6 inline-block">
-              MODEL CONTEXT PROTOCOL &bull; MCP
+    <div ref={sectionMCPRef} className="relative w-full h-[200vh] -mt-[100vh] z-40">
+      <section className="sticky top-0 h-screen w-full bg-[#151515] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 shadow-[0_-70px_160px_60px_rgba(0,0,0,0.95)]">
+        <div className="container-custom max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Lado Esquerdo */}
+          <div className="flex flex-col items-start">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-jobb-orange text-white mb-6 text-[15px]">
+              <Cpu size={18} className="text-jobb-orange" /> Model Context Protocol
             </span>
 
-            {/* Título */}
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-8 tracking-tight leading-[1.15]">
-              Conecte o Jobb à sua<br className="hidden sm:inline" /> plataforma de IA
+            <h2 className="text-3xl md:text-4xl text-white mb-4 leading-tight font-normal">
+              Conecte o Jobb <span className="text-jobb-text-secondary">à sua plataforma de IA</span>
             </h2>
 
-            {/* Parágrafo explicativo */}
-            <p className="text-[#a1a1aa] leading-relaxed text-[16px] md:text-[17px] mb-8 max-w-xl">
+            <p className="text-jobb-text-secondary leading-relaxed text-[16px] max-w-xl mb-6">
               Além das telas do sistema, o Jobb se conecta a assistentes de IA pelo Model Context Protocol (MCP). Em Cursor, Claude Desktop, VS Code e outros clientes compatíveis, você pede em linguagem natural: listar fornecedores, criar lançamento, consultar acompanhamento financeiro ou abrir projeto.
             </p>
 
-            {/* Frase de Destaque */}
-            <div className="text-white text-[17px] md:text-[18px] leading-snug font-medium">
+            <div className="text-white text-[17px] leading-snug border-l-2 border-jobb-orange pl-4 mt-2">
               <p>A conexão usa a mesma API REST do Jobb,</p>
-              <p>com autenticação da sua conta.</p>
+              <p><span className="text-jobb-orange font-semibold">com autenticação</span> da sua conta.</p>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Lado Direito: Card Mockup MCP */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="w-full flex justify-center lg:justify-end"
-          >
-            <div className="w-full max-w-[480px] bg-[#141414] border border-white/5 rounded-[28px] p-8 sm:p-10 shadow-2xl flex flex-col space-y-7">
-              {/* Cabeçalho do Card */}
-              <div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">
-                  Fale com o Jobb<br />
-                  onde você já trabalha.
-                </h3>
-                <div className="text-[11px] font-semibold text-[#8e8e93] tracking-widest uppercase mt-4 space-y-1">
-                  <p className="space-x-3">
-                    <span>CURSOR</span>
-                    <span>CLAUDE DESKTOP</span>
-                    <span>VS CODE</span>
-                  </p>
-                  <p>OUTROS CLIENTES COMPATÍVEIS</p>
-                </div>
-              </div>
-
-              {/* Bloco Central Laranja (JOBB MCP) */}
-              <div className="rounded-2xl bg-gradient-to-r from-[#FF3B00] to-[#FF5E00] p-7 text-center text-white shadow-lg shadow-orange-600/25">
-                <div className="text-xl font-extrabold tracking-wider uppercase mb-1">
-                  JOBB MCP
-                </div>
-                <div className="text-sm sm:text-[15px] font-semibold text-white/95">
-                  API REST + autenticação da conta
-                </div>
-              </div>
-
-              {/* Bloco de Exemplos em Linguagem Natural */}
-              <div className="rounded-2xl bg-[#1e1e1e] border border-white/5 p-6 space-y-4 text-sm sm:text-[15px] text-[#e4e4e7]">
-                <p>“Liste os fornecedores ativos.”</p>
-                <p>“Crie um lançamento para este projeto.”</p>
-                <p>“Abra o acompanhamento financeiro.”</p>
-              </div>
-            </div>
-          </motion.div>
+          {/* Lado Direito: Workflow Interativo MCP (Animado com Scroll) */}
+          <div className="w-full flex justify-center lg:justify-end">
+            <IAMCPWorkflow progress={smoothProgress} />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

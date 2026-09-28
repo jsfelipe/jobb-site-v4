@@ -1,6 +1,6 @@
 {
   "siteUrl": "https://sistemajobb.com.br",
-  "faviconUrl": "https://arquivos-jobbgestor.s3.amazonaws.com/appImgs/favicon.png",
+  "faviconUrl": "/favicon.png",
   "defaultSeo": {
     "title": "Sistema de Gestão para Produtoras de Vídeo, Eventos, Cinema, Áudio, Audiovisual e Economia Criativa - Sistema Jobb",
     "description": "Gerencie sua Produtora de Vídeo, Cinema, Agência de Eventos, Áudio e Estúdio. Gestão Economia Criativa. Controle todos os processos e custos em cada etapa.",

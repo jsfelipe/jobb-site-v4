@@ -48,7 +48,7 @@ export function IAControleHumano() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-3xl md:text-4xl font-bold text-white mb-4"
+          className="text-3xl md:text-4xl text-white mb-4"
         >
           A IA acelera. <span className="font-normal text-jobb-text-secondary">Sua equipe decide.</span>
         </motion.h2>
@@ -77,8 +77,8 @@ export function IAControleHumano() {
               className="bg-card p-8 rounded-3xl transition-colors duration-300 hover:bg-jobb-bg-secondary group cursor-default shadow-none"
             >
               <div className="flex items-center gap-2.5 mb-4">
-                <span className="text-jobb-orange font-bold text-base font-mono">{item.step}</span>
-                <h3 className="text-xl text-white font-bold tracking-tight">{item.title}</h3>
+                <span className="text-jobb-orange text-base font-medium">{item.step}</span>
+                <h3 className="text-xl text-white tracking-tight">{item.title}</h3>
               </div>
               <p className="text-jobb-text-secondary leading-relaxed text-[16px]">
                 {item.description}
