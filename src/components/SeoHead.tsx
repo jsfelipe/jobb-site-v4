@@ -51,7 +51,9 @@ export function SeoHead() {
       <meta name="twitter:title" content={seo.title} />
       <meta name="twitter:description" content={seo.description} />
 
-      <link rel="icon" type="image/png" sizes="16x16" href={FAVICON_URL} />
+      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+      <link rel="icon" type="image/png" sizes="48x48" href={FAVICON_URL} />
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     </Helmet>
   );
 }

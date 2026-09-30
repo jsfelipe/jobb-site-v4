@@ -5,7 +5,7 @@ import { MotionDiv, MotionP, MotionHeader, MotionSpan, MotionSection } from '@/c
 
 export function Footer() {
     return (
-        <footer className="bg-jobb-gray pt-16">
+        <footer className="bg-jobb-gray pt-16 relative z-10">
             <div className="container-custom">
                 <MotionDiv
                     initial={{ opacity: 0, y: 40 }}

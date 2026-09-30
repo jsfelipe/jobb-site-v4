@@ -15,10 +15,9 @@ function normalizeApiBase(url: string): string {
 }
 
 function getApiBase(): string {
-  const raw = import.meta.env.VITE_JOBBADMIN_API_URL || '';
-  if (!raw) {
-    throw new Error('VITE_JOBBADMIN_API_URL não configurada.');
-  }
+  const raw =
+    import.meta.env.VITE_JOBBADMIN_API_URL ||
+    'https://apijobbadmin.sistemajobb.com.br/api';
   return normalizeApiBase(String(raw));
 }
 

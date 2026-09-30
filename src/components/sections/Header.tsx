@@ -30,6 +30,7 @@ export function Header() {
                 <nav className="hidden lg:flex items-center gap-8">
                     <Link to="/" className={`text-sm font-medium transition-colors hover:text-white ${isActive('/') ? 'text-jobb-orange' : 'text-jobb-text-secondary'}`}>Home</Link>
                     <Link to="/funcionalidades" className={`text-sm font-medium transition-colors hover:text-white ${isActive('/funcionalidades') ? 'text-jobb-orange' : 'text-jobb-text-secondary'}`}>Funcionalidades</Link>
+                    <Link to="/ia" className={`text-sm font-medium transition-colors hover:text-white ${isActive('/ia') ? 'text-jobb-orange' : 'text-jobb-text-secondary'}`}>IA</Link>
                     <Link to="/clientes" className={`text-sm font-medium transition-colors hover:text-white ${isActive('/clientes') ? 'text-jobb-orange' : 'text-jobb-text-secondary'}`}>Clientes</Link>
                     <Link to="/estudantes-professores" className={`text-sm font-medium transition-colors hover:text-white ${isActive('/estudantes-professores') ? 'text-jobb-orange' : 'text-jobb-text-secondary'}`}>Estudantes/Professores</Link>
                     <Link to="https://blog.sistemajobb.com.br/" target="_blank" className={`text-sm font-medium transition-colors hover:text-white ${isActive('/blog') ? 'text-jobb-orange' : 'text-jobb-text-secondary'}`}>Blog</Link>
@@ -50,6 +51,7 @@ export function Header() {
                 <div className="lg:hidden bg-jobb-dark border-b border-white/10 p-4 flex flex-col gap-4">
                     <Link to="/" onClick={() => setIsMenuOpen(false)} className={`text-sm font-medium transition-colors hover:text-white ${isActive('/') ? 'text-jobb-orange' : 'text-jobb-text-secondary'}`}>Home</Link>
                     <Link to="/funcionalidades" onClick={() => setIsMenuOpen(false)} className={`text-sm font-medium transition-colors hover:text-white ${isActive('/funcionalidades') ? 'text-jobb-orange' : 'text-jobb-text-secondary'}`}>Funcionalidades</Link>
+                    <Link to="/ia" onClick={() => setIsMenuOpen(false)} className={`text-sm font-medium transition-colors hover:text-white ${isActive('/ia') ? 'text-jobb-orange' : 'text-jobb-text-secondary'}`}>IA</Link>
                     <Link to="/clientes" onClick={() => setIsMenuOpen(false)} className={`text-sm font-medium transition-colors hover:text-white ${isActive('/clientes') ? 'text-jobb-orange' : 'text-jobb-text-secondary'}`}>Clientes</Link>
                     <Link to="/estudantes-professores" onClick={() => setIsMenuOpen(false)} className={`text-sm font-medium transition-colors hover:text-white ${isActive('/estudantes-professores') ? 'text-jobb-orange' : 'text-jobb-text-secondary'}`}>Estudantes/Professores</Link>
                     <Link to="https://blog.sistemajobb.com.br/" target="_blank" onClick={() => setIsMenuOpen(false)} className={`text-sm font-medium transition-colors hover:text-white ${isActive('/blog') ? 'text-jobb-orange' : 'text-jobb-text-secondary'}`}>Blog</Link>
