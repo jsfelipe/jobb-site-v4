@@ -48,8 +48,8 @@ export function IAStickyFeatures() {
   return (
     <div className="relative w-full bg-[#181818]">
       {/* ─── CARD 1: Conciliação bancária com IA ─── */}
-      <div ref={section1Ref} className="relative w-full h-[300vh] z-10">
-        <section className="sticky top-0 h-screen w-full bg-[#1e1e1e] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div ref={section1Ref} className="relative w-full h-auto lg:h-[300vh] z-10">
+        <section className="relative lg:sticky top-0 min-h-screen lg:h-screen w-full bg-[#1e1e1e] flex items-center justify-center py-16 sm:py-20 lg:py-12 px-4 sm:px-6 lg:px-8">
           <div className="container-custom max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Lado Esquerdo: Texto */}
             <div className="flex flex-col items-start">
@@ -79,9 +79,9 @@ export function IAStickyFeatures() {
         </section>
       </div>
 
-      {/* ─── CARD 2: Crie orçamentos com IA (Só sobe e cobre o Card 1 APÓS a animação do Card 1 terminar) ─── */}
-      <div ref={section2Ref} className="relative w-full h-[300vh] -mt-[100vh] z-20">
-        <section className="sticky top-0 h-screen w-full bg-[#1b1b1b] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 shadow-[0_-50px_120px_40px_rgba(0,0,0,0.85)]">
+      {/* ─── CARD 2: Crie orçamentos com IA ─── */}
+      <div ref={section2Ref} className="relative w-full h-auto lg:h-[300vh] mt-0 lg:-mt-[100vh] z-20">
+        <section className="relative lg:sticky top-0 min-h-screen lg:h-screen w-full bg-[#1b1b1b] flex items-center justify-center py-16 sm:py-20 lg:py-12 px-4 sm:px-6 lg:px-8 shadow-[0_-50px_120px_40px_rgba(0,0,0,0.85)]">
           <div className="container-custom max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Lado Esquerdo: Workflow Animado via Scroll */}
             <div className="w-full flex justify-center lg:justify-start order-2 lg:order-1">
@@ -111,9 +111,9 @@ export function IAStickyFeatures() {
         </section>
       </div>
 
-      {/* ─── CARD 3: Importe orçamentos com ajuda da IA (Só sobe e cobre o Card 2 APÓS a animação do Card 2 terminar) ─── */}
-      <div ref={section3Ref} className="relative w-full h-[300vh] -mt-[100vh] z-30">
-        <section className="sticky top-0 h-screen w-full bg-[#181818] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 shadow-[0_-60px_140px_50px_rgba(0,0,0,0.9)]">
+      {/* ─── CARD 3: Importe orçamentos com ajuda da IA ─── */}
+      <div ref={section3Ref} className="relative w-full h-auto lg:h-[300vh] mt-0 lg:-mt-[100vh] z-30">
+        <section className="relative lg:sticky top-0 min-h-screen lg:h-screen w-full bg-[#181818] flex items-center justify-center py-16 sm:py-20 lg:py-12 px-4 sm:px-6 lg:px-8 shadow-[0_-60px_140px_50px_rgba(0,0,0,0.9)]">
           <div className="container-custom max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Lado Esquerdo: Texto */}
             <div className="flex flex-col items-start">

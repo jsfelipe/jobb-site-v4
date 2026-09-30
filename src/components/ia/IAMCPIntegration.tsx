@@ -16,8 +16,8 @@ export function IAMCPIntegration() {
   });
 
   return (
-    <div ref={sectionMCPRef} className="relative w-full h-[200vh] -mt-[100vh] z-40">
-      <section className="sticky top-0 h-screen w-full bg-[#151515] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 shadow-[0_-70px_160px_60px_rgba(0,0,0,0.95)]">
+    <div ref={sectionMCPRef} className="relative w-full h-auto lg:h-[200vh] mt-0 lg:-mt-[100vh] z-40">
+      <section className="relative lg:sticky top-0 min-h-screen lg:h-screen w-full bg-[#151515] flex items-center justify-center py-16 sm:py-20 lg:py-12 px-4 sm:px-6 lg:px-8 shadow-[0_-70px_160px_60px_rgba(0,0,0,0.95)]">
         <div className="container-custom max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Lado Esquerdo */}
           <div className="flex flex-col items-start">

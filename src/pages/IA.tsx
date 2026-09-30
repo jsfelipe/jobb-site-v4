@@ -1,7 +1,6 @@
 import { Header } from '@/components/sections/Header';
 import { Footer } from '@/components/sections/Footer';
 import { IAHero } from '@/components/ia/IAHero';
-import { IAMarquee } from '@/components/ia/IAMarquee';
 import { IAControleHumano } from '@/components/ia/IAControleHumano';
 import { IAStickyFeatures } from '@/components/ia/IAStickyFeatures';
 import { IAMCPIntegration } from '@/components/ia/IAMCPIntegration';
@@ -94,7 +93,6 @@ export default function IAPage() {
         {/* Hero Section e Marquee com a cor do site */}
         <section className="bg-secondary pt-8 pb-6 px-4 sm:px-6 lg:px-8 border-b border-white/5 overflow-hidden">
           <IAHero />
-          <IAMarquee />
         </section>
 
         {/* Seção: Controle Humano em Cada Etapa */}
