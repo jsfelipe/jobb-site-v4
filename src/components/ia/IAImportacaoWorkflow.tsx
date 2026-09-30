@@ -1,11 +1,11 @@
 import { motion, useTransform, MotionValue } from 'motion/react';
-import { 
-  Check, 
-  FileSpreadsheet, 
-  ArrowRightLeft, 
-  TableProperties, 
-  ShieldCheck, 
-  CheckCircle2 
+import {
+  Check,
+  FileSpreadsheet,
+  ArrowRightLeft,
+  TableProperties,
+  ShieldCheck,
+  CheckCircle2
 } from 'lucide-react';
 
 interface IAImportacaoWorkflowProps {
@@ -49,9 +49,9 @@ export function IAImportacaoWorkflow({ progress }: IAImportacaoWorkflowProps) {
   return (
     /* Container 100% transparente, sem background, sem moldura e sem bordas */
     <div className="relative w-full max-w-[560px] mx-auto min-h-[460px] flex flex-col items-center justify-start select-none py-2">
-      
+
       {/* ─── CARD 1: TOPO (Planilha Importada / Origem) ─── */}
-      <motion.div 
+      <motion.div
         style={isScrollDriven ? { y: card1Y, opacity: card1Opacity, scale: card1Scale } : undefined}
         initial={!isScrollDriven ? { opacity: 0, y: 20 } : undefined}
         whileInView={!isScrollDriven ? { opacity: 1, y: 0 } : undefined}
@@ -121,7 +121,7 @@ export function IAImportacaoWorkflow({ progress }: IAImportacaoWorkflowProps) {
         </svg>
 
         {/* Badges Flutuantes nos ramos */}
-        <motion.div 
+        <motion.div
           style={isScrollDriven ? { opacity: linesTopOpacity } : undefined}
           initial={!isScrollDriven ? { opacity: 0 } : undefined}
           whileInView={!isScrollDriven ? { opacity: 1 } : undefined}
@@ -131,7 +131,7 @@ export function IAImportacaoWorkflow({ progress }: IAImportacaoWorkflowProps) {
         >
           92% auto-match
         </motion.div>
-        <motion.div 
+        <motion.div
           style={isScrollDriven ? { opacity: linesTopOpacity } : undefined}
           initial={!isScrollDriven ? { opacity: 0 } : undefined}
           whileInView={!isScrollDriven ? { opacity: 1 } : undefined}
@@ -144,7 +144,7 @@ export function IAImportacaoWorkflow({ progress }: IAImportacaoWorkflowProps) {
       </div>
 
       {/* ─── NÓS DO MEIO: 2 CARDS PARALELOS (DECISÃO) ─── */}
-      <motion.div 
+      <motion.div
         style={isScrollDriven ? { y: middleCardsY, opacity: middleCardsOpacity, filter: middleCardsFilter } : undefined}
         initial={!isScrollDriven ? { opacity: 0, y: 25 } : undefined}
         whileInView={!isScrollDriven ? { opacity: 1, y: 0 } : undefined}
@@ -195,7 +195,7 @@ export function IAImportacaoWorkflow({ progress }: IAImportacaoWorkflowProps) {
               <ShieldCheck size={17} strokeWidth={1.5} />
             </div>
             <span className="text-[10px] text-amber-400/80 bg-amber-400/10 border border-amber-400/15 px-2 py-0.5 rounded-full">
-              Auditoria ANCINE
+              Auditoria
             </span>
           </div>
 
@@ -242,7 +242,7 @@ export function IAImportacaoWorkflow({ progress }: IAImportacaoWorkflowProps) {
         </svg>
 
         {/* Badge Central de Validação (no tom de laranja da marca) */}
-        <motion.div 
+        <motion.div
           style={isScrollDriven ? { scale: checkBadgeScale, opacity: checkBadgeOpacity } : undefined}
           initial={!isScrollDriven ? { scale: 0, opacity: 0 } : undefined}
           whileInView={!isScrollDriven ? { scale: 1, opacity: 1 } : undefined}
@@ -255,7 +255,7 @@ export function IAImportacaoWorkflow({ progress }: IAImportacaoWorkflowProps) {
       </div>
 
       {/* ─── CARD 4: RESULTADO FINAL (Orçamento Gravado no Sistema) ─── */}
-      <motion.div 
+      <motion.div
         style={isScrollDriven ? { y: card4Y, opacity: card4Opacity, filter: card4Filter } : undefined}
         initial={!isScrollDriven ? { opacity: 0, y: 20 } : undefined}
         whileInView={!isScrollDriven ? { opacity: 1, y: 0 } : undefined}
