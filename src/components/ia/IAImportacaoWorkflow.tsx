@@ -188,23 +188,23 @@ export function IAImportacaoWorkflow({ progress }: IAImportacaoWorkflowProps) {
           </motion.div>
         </div>
 
-        {/* CARD DIREITO: Integridade & Regras */}
+        {/* CARD DIREITO: Consistência nos dados */}
         <div className="rounded-2xl bg-transparent border border-white/15 p-5 flex flex-col justify-between relative">
           <div className="flex items-start justify-between mb-4">
             <div className="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-white/60">
               <ShieldCheck size={17} strokeWidth={1.5} />
             </div>
             <span className="text-[10px] text-amber-400/80 bg-amber-400/10 border border-amber-400/15 px-2 py-0.5 rounded-full">
-              Auditoria ANCINE
+              Sem re-digitação
             </span>
           </div>
 
           <div>
             <div className="text-[15px] text-white/90 font-medium tracking-tight">
-              Consistência de Valores
+              Consistência nos Dados
             </div>
             <div className="text-[12px] text-white/50 mt-1 leading-snug">
-              Sem divergências em impostos e subtotais
+              Evitar re-digitação de informações
             </div>
           </div>
         </div>
