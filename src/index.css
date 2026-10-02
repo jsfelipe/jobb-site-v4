@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-albert-sans), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: 'Albert Sans', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-display: 'Albert Sans', sans-serif;
 
   --color-jobb-orange: #F93F06;
   --color-jobb-orange-hover: #ED6D05;
@@ -12,6 +13,10 @@
   --color-jobb-text-secondary: #A8A8B3;
   --color-card: #2c2c2c;
   --color-jobb-bg-secondary: #171717;
+}
+
+html, body {
+  font-family: 'Albert Sans', sans-serif;
 }
 
 /* Custom utilities if needed */

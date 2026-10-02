@@ -6,7 +6,7 @@ services:
       - "3000:3000"
     volumes:
       - .:/app
-      # ⚠️ NÃO monte /app/node_modules — isso apaga as deps do container
+      - web-node-modules:/app/node_modules
       - npm-cache:/root/.npm
     environment:
       NODE_ENV: development
@@ -21,3 +21,4 @@ services:
 
 volumes:
   npm-cache:
+  web-node-modules:

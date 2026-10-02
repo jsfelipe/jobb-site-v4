@@ -9,6 +9,7 @@ import TermosDeUso from './pages/TermosDeUso';
 import TesteGratis from './pages/TesteGratis';
 import TesteGratisSucesso from './pages/TesteGratisSucesso';
 import TesteGratisPagamentoSuccess from './pages/TesteGratisPagamentoSuccess';
+import IA from './pages/IA';
 import { JobbChatWidget } from './components/JobbChatWidget';
 import { SeoHead } from './components/SeoHead';
 
@@ -41,6 +42,7 @@ function App() {
         <Route path="/teste-gratis" element={<TesteGratis />} />
         <Route path="/teste-gratis/sucesso" element={<TesteGratisSucesso />} />
         <Route path="/teste-gratis/pagamentosuccess" element={<TesteGratisPagamentoSuccess />} />
+        <Route path="/ia" element={<IA />} />
       </Routes>
       <JobbChatWidget />
     </BrowserRouter>

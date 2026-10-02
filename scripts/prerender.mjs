@@ -104,7 +104,7 @@ function applySeoToHtml(html, route) {
   out = replaceTag(
     out,
     /<link\s+rel="icon"[^>]*>/i,
-    `<link rel="icon" type="image/png" sizes="16x16" href="${escapeAttr(seoData.faviconUrl)}" />`,
+    `<link rel="icon" type="image/x-icon" href="/favicon.ico" />\n    <link rel="icon" type="image/png" sizes="48x48" href="${escapeAttr(seoData.faviconUrl)}" />\n    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />`,
   );
 
   return out;
