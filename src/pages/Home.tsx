@@ -1,9 +1,10 @@
-import { Header } from '@/components/sections/Header';
+﻿import { Header } from '@/components/sections/Header';
 import { Hero } from '@/components/sections/Hero';
 import { Problem } from '@/components/sections/Problem';
 import { Solution } from '@/components/sections/Solution';
 import { TargetAudience } from '@/components/sections/TargetAudience';
 import { Features } from '@/components/sections/Features';
+import { IAChamada } from '@/components/sections/IAChamada';
 import { Ancine } from '@/components/sections/Ancine';
 import { Pricing } from '@/components/sections/Pricing';
 import { Testimonials } from '@/components/sections/Testimonials';
@@ -22,6 +23,7 @@ export default function LandingPage() {
         <Solution />
         <TargetAudience />
         <Features />
+        <IAChamada />
         <Ancine />
         <Pricing />
         <Testimonials />
