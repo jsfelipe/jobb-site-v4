@@ -70,12 +70,25 @@ export function IAAPIWorkflow() {
             stroke="rgba(255, 255, 255, 0.85)"
             strokeWidth="1.5"
             strokeDasharray="14 100"
-            initial={{ strokeDashoffset: 114 }}
+            initial={{ strokeDashoffset: 114, opacity: 0 }}
             animate={{ strokeDashoffset: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
             transition={{ duration: 2.2, repeat: Infinity, ease: "linear" }}
           />
 
-          <circle cx="210" cy="18" r="2.5" fill="transparent" stroke="rgba(255, 255, 255, 0.5)" strokeWidth="1.2" />
+          <motion.circle
+            cx="210"
+            cy="18"
+            r="2.5"
+            fill="transparent"
+            stroke="rgba(255, 255, 255, 0.5)"
+            strokeWidth="1.2"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.35 }}
+          />
         </svg>
 
         {/* Badges Flutuantes nos ramos */}
@@ -188,9 +201,42 @@ export function IAAPIWorkflow() {
             transition={{ duration: 0.6, delay: 0.65 }}
           />
 
-          <circle cx="110" cy="0" r="2" fill="transparent" stroke="rgba(255, 255, 255, 0.3)" strokeWidth="1" />
-          <circle cx="310" cy="0" r="2" fill="transparent" stroke="rgba(255, 255, 255, 0.3)" strokeWidth="1" />
-          <circle cx="210" cy="40" r="2.5" fill="transparent" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="1.2" />
+          <motion.circle
+            cx="110"
+            cy="0"
+            r="2"
+            fill="transparent"
+            stroke="rgba(255, 255, 255, 0.3)"
+            strokeWidth="1"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.65 }}
+          />
+          <motion.circle
+            cx="310"
+            cy="0"
+            r="2"
+            fill="transparent"
+            stroke="rgba(255, 255, 255, 0.3)"
+            strokeWidth="1"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.65 }}
+          />
+          <motion.circle
+            cx="210"
+            cy="40"
+            r="2.5"
+            fill="transparent"
+            stroke="rgba(255, 255, 255, 0.4)"
+            strokeWidth="1.2"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.7 }}
+          />
         </svg>
 
         {/* Badge Central de Validação */}
